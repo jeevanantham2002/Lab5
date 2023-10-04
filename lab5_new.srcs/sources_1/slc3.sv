@@ -82,7 +82,7 @@ register PC_register(.clk(Clk), .reset(Reset), .load(LD_PC), .Din(PC_mux_out), .
 register IR_register(.clk(Clk), .reset(Reset), .load(LD_IR), .Din(bus), .Dout(IR));
 // Our I/O controller (note, this plugs into MDR/MAR)
 assign PCincrement = PC + 1;
-PC_mux myPCmux(.Select(PCMUX), .Aval(bus), .Bval(AdderOutput), .Cval(PCincrement), .Dval(16'h0000), .myOutput(PC_mux_out));
+PC_mux myPCmux(.Select(PCMUX), .Aval(PCincrement), .Bval(AdderOutput), .Cval(bus), .Dval(16'h0000), .myOutput(PC_mux_out));
 
 //SET UP ADDER FOR ADDR1 AND ADDR2
 logic [15:0] AdderOutput;
@@ -143,14 +143,7 @@ SEXT_5_Bit_To_16_Bit SR2SEXT(.in(IR[4:0]), .out(SR2SextOutput));
 logic [15:0] ALUOutput;
 ALU myALU(.Select(ALUK), .Aval(SR1), .Bval(SR2MUXOutput), .Output(ALUOutput), .N(N_IN), .Z(Z_IN), .P(P_IN));
 
-
-always_comb
-begin
-   if(LD_BEN == 1'b1)
-   begin
-        BEN = IR[11] & N_OUT | IR[10] & Z_OUT | IR[9] & P_OUT;
-   end
-end
+ben_reg myBenReg(.clk(Clk), .reset(Reset), .load(LD_BEN), .Din({N_OUT, Z_OUT, P_OUT}), .IR(IR[11:9]), .Dout(BEN));
 
 
 Mem2IO memory_subsystem(
