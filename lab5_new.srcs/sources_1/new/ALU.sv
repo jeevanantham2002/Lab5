@@ -30,9 +30,9 @@ module ALU(
     always_comb
     begin
         case(Select)
-            2'b00: Output = Aval & Bval;
-            2'b01: Output = ~Aval;
-            2'b10: Output = Aval + Bval;
+            2'b00: Output = Aval + Bval;
+            2'b01: Output = Aval & Bval;
+            2'b10: Output = ~Aval;
             2'b11: Output = 0;       
         endcase
 
