@@ -90,11 +90,10 @@ Adder myAdder(.A(ADDR1MUXOUTPUT), .B(ADDR2MUXOUTPUT), .myOutput(AdderOutput));
 
 //Set Up ADDR1MUX
 logic [15:0] ADDR1MUXOUTPUT;
-generalMux ADDR1CHOOSE (.Select({0,ADDR1MUX}), .Aval(SR1), .Bval(PCincrement), .Cval(16'h0000), .Dval(16'h0000), .myOutput(ADDR1MUXOUTPUT));
+generalMux ADDR1CHOOSE (.Select({0,ADDR1MUX}), .Aval(SR1), .Bval(PC), .Cval(16'h0000), .Dval(16'h0000), .myOutput(ADDR1MUXOUTPUT));
 
 //SET UP ADDR2MUX
 logic [15:0] ADDR2MUXOUTPUT;
-
 logic [15:0] selectOneADDR2MUX;
 logic [15:0] selectTwoADDR2MUX;
 logic [15:0] selectThreeADDR2MUX;
@@ -124,15 +123,15 @@ SRMux DRMux(.Select(DRMUX), .Aval(DRMUXSelectZero), .Bval(DRMUXSelectOne), .myOu
 
 //SR1MUX
 logic [2:0] SR1MUXOutput;
-logic [2:0] SR1MUXSelectZero = IR[11:9];
-logic [2:0] SR1MUXSelectOne = IR[8:6];
+logic [2:0] SR1MUXSelectZero = IR[8:6];
+logic [2:0] SR1MUXSelectOne = IR[11:9];
 SRMux SR1Mux(.Select(SR1MUX), .Aval(SR1MUXSelectZero), .Bval(SR1MUXSelectOne), .myOutput(SR1MUXOutput));
 
 
 //SR2MUX
 logic [15:0] SR2MUXOutput;
-logic [15:0] SR2MUXSelectZero = SR2SextOutput;
-logic [15:0] SR2MUXSelectOne = SR2;
+logic [15:0] SR2MUXSelectOne = SR2SextOutput;
+logic [15:0] SR2MUXSelectZero = SR2;
 generalMux SR2Mux(.Select({0,SR2MUX}), .Aval(SR2MUXSelectZero), .Bval(SR2MUXSelectOne), .Cval(0), .Dval(0), .myOutput(SR2MUXOutput));
 
 //SR2 MUX SEXT
