@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date                      : Wed Sep 27 18:39:43 2023
-| Host                      : ECEB-3022-16 running 64-bit major release  (build 9200)
+| Date                      : Wed Oct  4 12:44:23 2023
+| Host                      : DESKTOP-22E4S6R running 64-bit major release  (build 9200)
 | Command                   : report_io -file slc3_sramtop_io_placed.rpt
 | Design                    : slc3_sramtop
 | Device                    : xc7s50

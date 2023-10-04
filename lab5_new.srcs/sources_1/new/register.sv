@@ -33,3 +33,18 @@ module register(
                 Dout <= Din;
       end
 endmodule
+
+
+module oneBitRegister(
+      input logic clk, reset, load,
+      input logic Din,
+      output logic Dout);
+      
+      always_ff @ (posedge clk)
+      begin
+            if(reset)
+                Dout <= 1'h0;
+            else if (load)
+                Dout <= Din;
+      end
+endmodule

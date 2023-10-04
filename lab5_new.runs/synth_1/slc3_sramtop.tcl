@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/navinr2/lab5_new/lab5_new.runs/synth_1/slc3_sramtop.tcl"
+  variable script "C:/Users/jeeva/Documents/lab5_new/lab5_new.runs/synth_1/slc3_sramtop.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,6 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 3
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7s50csga324-1
 
@@ -77,31 +78,43 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir C:/Users/navinr2/lab5_new/lab5_new.cache/wt [current_project]
-set_property parent.project_path C:/Users/navinr2/lab5_new/lab5_new.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/jeeva/Documents/lab5_new/lab5_new.cache/wt [current_project]
+set_property parent.project_path C:/Users/jeeva/Documents/lab5_new/lab5_new.xpr [current_project]
 set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo c:/Users/navinr2/lab5_new/lab5_new.cache/ip [current_project]
+set_property ip_output_repo c:/Users/jeeva/Documents/lab5_new/lab5_new.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog -library xil_defaultlib -sv {
-  C:/Users/navinr2/lab5_provided_fa23/provided/srcs/ISDU.sv
-  C:/Users/navinr2/lab5_provided_fa23/provided/srcs/SLC3_2.sv
-  C:/Users/navinr2/lab5_provided_fa23/provided/srcs/Instantiateram.sv
-  C:/Users/navinr2/lab5_new/lab5_new.srcs/sources_1/new/MIOMux.sv
-  C:/Users/navinr2/lab5_provided_fa23/provided/srcs/Mem2IO.sv
-  C:/Users/navinr2/lab5_new/lab5_new.srcs/sources_1/new/PC_mux.sv
-  C:/Users/navinr2/lab5_new/lab5_new.srcs/sources_1/new/TSB_Mux.sv
-  C:/Users/navinr2/Lab_3/Lab_3.srcs/sources_1/imports/design_source/hex.sv
-  C:/Users/navinr2/lab5_new/lab5_new.srcs/sources_1/new/register.sv
-  C:/Users/navinr2/lab5_provided_fa23/provided/srcs/slc3.sv
-  C:/Users/navinr2/lab5_provided_fa23/provided/srcs/synchronizers.sv
-  C:/Users/navinr2/lab5_provided_fa23/provided/srcs/slc3_sramtop.sv
+read_verilog {
+  C:/Users/jeeva/Documents/lab5_new/lab5_new.srcs/sources_1/SLC3_2.sv
+  C:/Users/jeeva/Documents/lab5_provided_fa23/provided/srcs/SLC3_2.sv
 }
-read_ip -quiet C:/Users/navinr2/lab5_new/lab5_new.srcs/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1.xci
-set_property used_in_implementation false [get_files -all c:/Users/navinr2/lab5_new/lab5_new.gen/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1_ooc.xdc]
+set_property file_type "Verilog Header" [get_files C:/Users/jeeva/Documents/lab5_new/lab5_new.srcs/sources_1/SLC3_2.sv]
+set_property file_type "Verilog Header" [get_files C:/Users/jeeva/Documents/lab5_provided_fa23/provided/srcs/SLC3_2.sv]
+read_verilog -library xil_defaultlib -sv {
+  C:/Users/jeeva/Documents/lab5_new/lab5_new.srcs/sources_1/new/ALU.sv
+  C:/Users/jeeva/Documents/lab5_new/lab5_new.srcs/sources_1/new/Adder.sv
+  C:/Users/jeeva/Documents/lab5_provided_fa23/provided/srcs/ISDU.sv
+  C:/Users/jeeva/Documents/lab5_new/lab5_new.srcs/sources_1/Instantiateram.sv
+  C:/Users/jeeva/Documents/lab5_provided_fa23/provided/srcs/Instantiateram.sv
+  C:/Users/jeeva/Documents/lab5_new/lab5_new.srcs/sources_1/new/MIOMux.sv
+  C:/Users/jeeva/Documents/lab5_provided_fa23/provided/srcs/Mem2IO.sv
+  C:/Users/jeeva/Documents/lab5_new/lab5_new.srcs/sources_1/new/PC_mux.sv
+  C:/Users/jeeva/Documents/lab5_new/lab5_new.srcs/sources_1/new/RegisterFile.sv
+  C:/Users/jeeva/Documents/lab5_new/lab5_new.srcs/sources_1/new/SEXT.sv
+  C:/Users/jeeva/Documents/lab5_new/lab5_new.srcs/sources_1/new/SRMux.sv
+  C:/Users/jeeva/Documents/lab5_new/lab5_new.srcs/sources_1/new/TSB_Mux.sv
+  C:/Users/jeeva/Documents/lab5_new/lab5_new.srcs/sources_1/new/generalMux.sv
+  C:/Users/jeeva/Documents/lab5_new/lab5_new.srcs/sources_1/hex.sv
+  C:/Users/jeeva/Documents/lab5_new/lab5_new.srcs/sources_1/new/register.sv
+  C:/Users/jeeva/Documents/lab5_provided_fa23/provided/srcs/slc3.sv
+  C:/Users/jeeva/Documents/lab5_provided_fa23/provided/srcs/synchronizers.sv
+  C:/Users/jeeva/Documents/lab5_provided_fa23/provided/srcs/slc3_sramtop.sv
+}
+read_ip -quiet C:/Users/jeeva/Documents/lab5_new/lab5_new.srcs/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1.xci
+set_property used_in_implementation false [get_files -all c:/Users/jeeva/Documents/lab5_new/lab5_new.gen/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -112,12 +125,12 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/navinr2/lab5_provided_fa23/provided/pin_assignment/top.xdc
-set_property used_in_implementation false [get_files C:/Users/navinr2/lab5_provided_fa23/provided/pin_assignment/top.xdc]
+read_xdc C:/Users/jeeva/Documents/lab5_provided_fa23/provided/pin_assignment/top.xdc
+set_property used_in_implementation false [get_files C:/Users/jeeva/Documents/lab5_provided_fa23/provided/pin_assignment/top.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental C:/Users/navinr2/lab5_new/lab5_new.srcs/utils_1/imports/synth_1/slc3_sramtop.dcp
+read_checkpoint -auto_incremental -incremental C:/Users/jeeva/Documents/lab5_new/lab5_new.srcs/utils_1/imports/synth_1/slc3_sramtop.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

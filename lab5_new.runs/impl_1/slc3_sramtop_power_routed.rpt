@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date             : Wed Sep 27 18:40:04 2023
-| Host             : ECEB-3022-16 running 64-bit major release  (build 9200)
+| Date             : Wed Oct  4 12:44:47 2023
+| Host             : DESKTOP-22E4S6R running 64-bit major release  (build 9200)
 | Command          : report_power -file slc3_sramtop_power_routed.rpt -pb slc3_sramtop_power_summary_routed.pb -rpx slc3_sramtop_power_routed.rpx
 | Design           : slc3_sramtop
 | Device           : xc7s50csga324-1
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.085        |
+| Total On-Chip Power (W)  | 0.077        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.014        |
+| Dynamic (W)              | 0.006        |
 | Device Static (W)        | 0.071        |
 | Effective TJA (C/W)      | 4.9          |
 | Max Ambient (C)          | 84.6         |
@@ -52,17 +52,17 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      387 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      194 |     32600 |            0.60 |
-|   CARRY4       |    <0.001 |       15 |      8150 |            0.18 |
-|   Register     |    <0.001 |      135 |     65200 |            0.21 |
-|   Others       |     0.000 |       15 |       --- |             --- |
-| Signals        |    <0.001 |      374 |       --- |             --- |
+| Clocks         |    <0.001 |        3 |       --- |             --- |
+| Slice Logic    |    <0.001 |      365 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      199 |     32600 |            0.61 |
+|   CARRY4       |    <0.001 |       11 |      8150 |            0.13 |
+|   Register     |    <0.001 |      119 |     65200 |            0.18 |
+|   Others       |     0.000 |       14 |       --- |             --- |
+| Signals        |    <0.001 |      355 |       --- |             --- |
 | Block RAM      |    <0.001 |      0.5 |        75 |            0.67 |
-| I/O            |     0.011 |       60 |       210 |           28.57 |
+| I/O            |     0.004 |       60 |       210 |           28.57 |
 | Static Power   |     0.071 |          |           |                 |
-| Total          |     0.085 |          |           |                 |
+| Total          |     0.077 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,10 +72,10 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.013 |       0.003 |      0.010 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.012 |       0.003 |      0.010 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vcco25    |       2.500 |     0.005 |       0.004 |      0.001 |       NA    | Unspecified | NA         |
+| Vcco25    |       2.500 |     0.002 |       0.001 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -139,8 +139,8 @@ Table of Contents
 +--------------+-----------+
 | Name         | Power (W) |
 +--------------+-----------+
-| slc3_sramtop |     0.014 |
-|   slc        |     0.001 |
+| slc3_sramtop |     0.006 |
+|   instaRam   |     0.001 |
 +--------------+-----------+
 
 

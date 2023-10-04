@@ -36,9 +36,10 @@ module slc3(
 // Internal connections
 logic LD_MAR, LD_MDR, LD_IR, LD_BEN, LD_CC, LD_REG, LD_PC, LD_LED;
 logic GatePC, GateMDR, GateALU, GateMARMUX;
-logic SR2MUX, ADDR1MUX, MARMUX;
-logic BEN, MIO_EN, DRMUX, SR1MUX;
-logic N, Z, P;
+logic SR2MUX, ADDR1MUX, MARMUX, DRMUX, SR1MUX;
+logic BEN, MIO_EN;
+logic N_OUT, Z_OUT, P_OUT; //What DOUT of the Registers Go To
+logic N_IN, Z_IN, P_IN;    //What DIN of the REGISTERS GO TO
 logic [1:0] PCMUX, ADDR2MUX, ALUK;
 logic [15:0] MDR_In, bus, PCincrement, PC_mux_out, MIO_mux_out;
 logic [15:0] MAR, MDR, IR, PC;
@@ -72,7 +73,7 @@ assign MIO_EN = OE;
 
 MIOMux myMIOmux(.Select(MIO_EN), .Aval(bus), .Bval(MDR_In), .myOutput(MIO_mux_out));
 
-TSB_Mux bus_mux(.Select({GatePC, GateMDR, GateALU, GateMARMUX}), .Aval(PC), .Bval(MDR), .Cval(16'h0000), .Dval(16'h0000), .myOutput(bus));
+TSB_Mux bus_mux(.Select({GatePC, GateMDR, GateALU, GateMARMUX}), .Aval(PC), .Bval(MDR), .Cval(ALUOutput), .Dval(AdderOutput), .myOutput(bus));
 // Instantiate the rest of your modules here according to the block diagram of the SLC-3
 // including your register file, ALU, etc..
 register MDR_register(.clk(Clk), .reset(Reset), .load(LD_MDR), .Din(MIO_mux_out), .Dout(MDR));
@@ -81,15 +82,76 @@ register PC_register(.clk(Clk), .reset(Reset), .load(LD_PC), .Din(PC_mux_out), .
 register IR_register(.clk(Clk), .reset(Reset), .load(LD_IR), .Din(bus), .Dout(IR));
 // Our I/O controller (note, this plugs into MDR/MAR)
 assign PCincrement = PC + 1;
-PC_mux myPCmux(.Select(PCMUX), .Aval(PCincrement), .Bval(bus), .Cval(16'h0000), .Dval(16'h0000), .myOutput(PC_mux_out));
+PC_mux myPCmux(.Select(PCMUX), .Aval(bus), .Bval(AdderOutput), .Cval(PCincrement), .Dval(16'h0000), .myOutput(PC_mux_out));
+
+//SET UP ADDER FOR ADDR1 AND ADDR2
+logic [15:0] AdderOutput;
+Adder myAdder(.A(ADDR1MUXOUTPUT), .B(ADDR2MUXOUTPUT), .myOutput(AdderOutput));
+
+//Set Up ADDR1MUX
+logic [15:0] ADDR1MUXOUTPUT;
+generalMux ADDR1CHOOSE (.Select({0,ADDR1MUX}), .Aval(SR1), .Bval(PCincrement), .Cval(16'h0000), .Dval(16'h0000), .myOutput(ADDR1MUXOUTPUT));
+
+//SET UP ADDR2MUX
+logic [15:0] ADDR2MUXOUTPUT;
+
+logic [15:0] selectOneADDR2MUX;
+logic [15:0] selectTwoADDR2MUX;
+logic [15:0] selectThreeADDR2MUX;
+logic [15:0] selectFourADDR2MUX = 16'h0000;
+generalMux ADDR2CHOOSE (.Select(ADDR2MUX), .Aval(selectOneADDR2MUX), .Bval(selectTwoADDR2MUX), .Cval(selectThreeADDR2MUX), .Dval(selectFourADDR2MUX), .myOutput(ADDR2MUXOUTPUT));
+
+SEXT_11_Bit_To_16_Bit firstInput(.in(IR[10:0]), .out(selectOneADDR2MUX));
+SEXT_9_Bit_To_16_Bit secondInput(.in(IR[8:0]), .out(selectTwoADDR2MUX));
+SEXT_6_Bit_To_16_Bit thirdInput(.in(IR[5:0]), .out(selectThreeADDR2MUX));
+
+
+//Set Up NZP Registers:
+oneBitRegister N_Register(.clk(Clk), .reset(Reset), .load(LD_CC), .Din(N_IN), .Dout(N_OUT));
+oneBitRegister Z_Register(.clk(Clk), .reset(Reset), .load(LD_CC), .Din(Z_IN), .Dout(Z_OUT));
+oneBitRegister P_Register(.clk(Clk), .reset(Reset), .load(LD_CC), .Din(P_IN), .Dout(P_OUT));
+
+// Set Up Register File and Connections
+logic [2:0] SR2Select = IR[2:0]; //First 3 bits of the IR
+logic [15:0] SR1,SR2;
+RegisterFile RegFile(.Clk(Clk), .reset(Reset), .Din(bus), .Load(LD_REG), .DRSelect(DRMuxOutput), .SR1Select(SR1MUXOutput), .SR2Select(SR2Select), .SR1(SR1), .SR2(SR2));
+
+//DR MUX
+logic [2:0] DRMuxOutput;
+logic [2:0] DRMUXSelectZero = 3'b111;
+logic [2:0] DRMUXSelectOne = IR[11:9];
+SRMux DRMux(.Select(DRMUX), .Aval(DRMUXSelectZero), .Bval(DRMUXSelectOne), .myOutput(DRMuxOutput));
+
+//SR1MUX
+logic [2:0] SR1MUXOutput;
+logic [2:0] SR1MUXSelectZero = IR[11:9];
+logic [2:0] SR1MUXSelectOne = IR[8:6];
+SRMux SR1Mux(.Select(SR1MUX), .Aval(SR1MUXSelectZero), .Bval(SR1MUXSelectOne), .myOutput(SR1MUXOutput));
+
+
+//SR2MUX
+logic [15:0] SR2MUXOutput;
+logic [15:0] SR2MUXSelectZero = SR2SextOutput;
+logic [15:0] SR2MUXSelectOne = SR2;
+generalMux SR2Mux(.Select({0,SR2MUX}), .Aval(SR2MUXSelectZero), .Bval(SR2MUXSelectOne), .Cval(0), .Dval(0), .myOutput(SR2MUXOutput));
+
+//SR2 MUX SEXT
+logic [15:0] SR2SextOutput;
+SEXT_5_Bit_To_16_Bit SR2SEXT(.in(IR[4:0]), .out(SR2SextOutput));
+
+//ALU
+logic [15:0] ALUOutput;
+ALU myALU(.Select(ALUK), .Aval(SR1), .Bval(SR2MUXOutput), .Output(ALUOutput), .N(N_IN), .Z(Z_IN), .P(P_IN));
+
 
 always_comb
 begin
    if(LD_BEN == 1'b1)
    begin
-        BEN = IR[11] & N | IR[10] & Z | IR[9] & P;
+        BEN = IR[11] & N_OUT | IR[10] & Z_OUT | IR[9] & P_OUT;
    end
-end 
+end
+
 
 Mem2IO memory_subsystem(
     .*, .Reset(Reset), .ADDR(ADDR), .Switches(SW),
@@ -102,7 +164,16 @@ Mem2IO memory_subsystem(
 ISDU state_controller(
 	.*, .Reset(Reset), .Run(Run), .Continue(Continue),
 	.Opcode(IR[15:12]), .IR_5(IR[5]), .IR_11(IR[11]),
-   .Mem_OE(OE), .Mem_WE(WE), .GatePC(GatePC), .GateMDR(GateMDR), .LD_PC(LD_PC),
-   .LD_MAR(LD_MAR), .LD_MDR(LD_MDR), .LD_IR(LD_IR), .PCMUX(PCMUX), .LD_LED(LD_LED));
+    .Mem_OE(OE), .Mem_WE(WE),
+    .GatePC(GatePC), .GateMDR(GateMDR), .GateALU(GateALU), .GateMARMUX(GateMARMUX),
+    .LD_MAR(LD_MAR), .LD_MDR(LD_MDR), .LD_IR(LD_IR), .LD_BEN(LD_BEN), .LD_CC(LD_CC), .LD_REG(LD_REG), .LD_PC(LD_PC), .LD_LED(LD_LED),
+    .PCMUX(PCMUX), .ADDR2MUX(ADDR2MUX), .DRMUX(DRMUX), .SR1MUX(SR1MUX), .SR2MUX(SR2MUX), .ADDR1MUX(ADDR1MUX), .ALUK(ALUK));
 	
 endmodule
+
+//Things to Note:
+    //Muxes Read Left to Right as 0-1
+    //Make BEN in a register
+    //Test Before you push
+
+//Questions Do we need the 4th select for the ALU? Can we just leave it as 0?
