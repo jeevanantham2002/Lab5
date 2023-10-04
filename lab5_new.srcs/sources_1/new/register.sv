@@ -48,3 +48,19 @@ module oneBitRegister(
                 Dout <= Din;
       end
 endmodule
+
+
+module ben_reg(
+ input logic clk, reset, load,
+      input logic [2:0] Din,
+      input logic [2:0] IR,
+      output logic Dout);
+
+      always_ff @ (posedge clk)
+      begin
+            if(reset)
+                Dout <= 1'b0;
+            else if (load)
+                Dout <= IR[2] & Din[2] | IR[1] & Din[1] | IR[0] & Din[0];
+      end
+endmodule
