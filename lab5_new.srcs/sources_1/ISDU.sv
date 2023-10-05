@@ -206,10 +206,12 @@ module ISDU (   input logic         Clk,
 			S_01 : 
 				begin 
 					SR2MUX = IR_5;
+					SR1MUX = 1'b1;
 					ALUK = 2'b00;
 					GateALU = 1'b1;
 					LD_REG = 1'b1;
 					LD_CC = 1'b1;
+					DRMUX = 1'b1;
 					// incomplete...
 				end
 

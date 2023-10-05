@@ -24,8 +24,8 @@ module RegisterFile(
     input logic Clk, reset,
     input logic [15:0] Din,
     input logic Load,
-    input logic DRSelect,
-    input logic SR1Select,
+    input logic [2:0] DRSelect,
+    input logic [2:0] SR1Select,
     input logic [2:0] SR2Select,
     output logic [15:0] SR1, SR2
     );
