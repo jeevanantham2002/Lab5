@@ -41,3 +41,39 @@ module generalMux(
         end
 
 endmodule
+
+module SR2generalMux(
+
+    input logic  Select,
+    input logic [15:0] Aval,
+    input logic [15:0] Bval,
+    output logic [15:0] myOutput
+    );
+    
+    always_comb
+        begin
+            case(Select)
+                2'b00: myOutput = Bval;
+                2'b01: myOutput = Aval;
+            endcase
+        end
+
+endmodule
+
+module ADDR1generalMux(
+
+    input logic Select,
+    input logic [15:0] Aval,
+    input logic [15:0] Bval,
+    output logic [15:0] myOutput
+    );
+    
+    always_comb
+        begin
+            case(Select)
+                2'b00: myOutput = Aval;
+                2'b01: myOutput = Bval;
+            endcase
+        end
+
+endmodule

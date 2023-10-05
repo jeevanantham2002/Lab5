@@ -68,7 +68,7 @@ initial begin : TEST_VECTORS
 Reset = 0;
 Continue = 0;
 Run = 0;
-SW = 16'b0001010000000001;
+SW = 16'b0000000000000000;
 
 #10 
 Reset = 1;

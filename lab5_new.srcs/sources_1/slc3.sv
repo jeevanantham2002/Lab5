@@ -41,9 +41,26 @@ logic BEN, MIO_EN;
 logic N_OUT, Z_OUT, P_OUT; //What DOUT of the Registers Go To
 logic N_IN, Z_IN, P_IN;    //What DIN of the REGISTERS GO TO
 logic [1:0] PCMUX, ADDR2MUX, ALUK;
-logic [15:0] MDR_In, bus, PCincrement, PC_mux_out, MIO_mux_out, SR1,SR2;;
+logic [15:0] MDR_In, bus, PCincrement, PC_mux_out, MIO_mux_out, SR1, SR2;
 logic [15:0] MAR, MDR, IR, PC;
 logic [3:0] hex_4[3:0];
+
+logic [15:0] AdderOutput;
+
+logic [15:0] ADDR2MUXOUTPUT;
+logic [15:0] selectOneADDR2MUX;
+logic [15:0] selectTwoADDR2MUX;
+logic [15:0] selectThreeADDR2MUX;
+
+logic [15:0] ADDR1MUXOUTPUT;
+
+logic [2:0] DRMuxOutput;
+
+logic [2:0] SR1MUXOutput;
+
+logic [15:0] SR2MUXOutput;
+
+logic [15:0] ALUOutput;
 
 HexDriver HexA (
     .clk(Clk),
@@ -84,26 +101,13 @@ assign PCincrement = PC + 1;
 PC_mux myPCmux(.Select(PCMUX), .Aval(bus), .Bval(AdderOutput), .Cval(PCincrement), .Dval(16'h0000), .myOutput(PC_mux_out));
 
 //SET UP ADDER FOR ADDR1 AND ADDR2
-logic [15:0] AdderOutput;
 Adder myAdder(.A(ADDR1MUXOUTPUT), .B(ADDR2MUXOUTPUT), .myOutput(AdderOutput));
 
 //Set Up ADDR1MUX
-logic [15:0] ADDR1MUXOUTPUT;
-generalMux myADDR1MUX (.Select({0,ADDR1MUX}), .Aval(SR1), .Bval(PCincrement), .Cval(16'h0000), .Dval(16'h0000), .myOutput(ADDR1MUXOUTPUT));
+ADDR1generalMux myADDR1MUX (.Select(ADDR1MUX), .Aval(SR1), .Bval(PCincrement), .Cval(16'h0000), .Dval(16'h0000), .myOutput(ADDR1MUXOUTPUT));
 
 //SET UP ADDR2MUX
-logic [15:0] ADDR2MUXOUTPUT;
-
-logic [15:0] selectOneADDR2MUX;
-logic [15:0] selectTwoADDR2MUX;
-logic [15:0] selectThreeADDR2MUX;
-
-generalMux myADDR2MUX (.Select(ADDR2MUX), .Aval(selectOneADDR2MUX), .Bval(selectTwoADDR2MUX), .Cval(selectThreeADDR2MUX), .Dval(16'h0000), .myOutput(ADDR2MUXOUTPUT));
-
-SEXT_11_Bit_To_16_Bit firstInput(.in(IR[10:0]), .out(selectOneADDR2MUX));
-SEXT_9_Bit_To_16_Bit secondInput(.in(IR[8:0]), .out(selectTwoADDR2MUX));
-SEXT_6_Bit_To_16_Bit thirdInput(.in(IR[5:0]), .out(selectThreeADDR2MUX));
-
+generalMux myADDR2MUX (.Select(ADDR2MUX), .Aval({{5{IR[10]}},IR[10:0]}), .Bval({{7{IR[8]}},IR[8:0]}), .Cval({{10{IR[5]}},IR[5:0]}), .Dval(16'h0000), .myOutput(ADDR2MUXOUTPUT));
 
 //Set Up NZP Registers:
 oneBitRegister N_Register(.clk(Clk), .reset(Reset), .load(LD_CC), .Din(N_IN), .Dout(N_OUT));
@@ -114,26 +118,16 @@ oneBitRegister P_Register(.clk(Clk), .reset(Reset), .load(LD_CC), .Din(P_IN), .D
 RegisterFile RegFile(.Clk(Clk), .reset(Reset), .Din(bus), .Load(LD_REG), .DRSelect(DRMuxOutput), .SR1Select(SR1MUXOutput), .SR2Select(IR[2:0]), .SR1(SR1), .SR2(SR2));
 
 //DR MUX
-logic [2:0] DRMuxOutput;
 SRMux DRMux(.Select(DRMUX), .Aval(3'b111), .Bval(IR[11:9]), .myOutput(DRMuxOutput));
 
 //SR1MUX
-logic [2:0] SR1MUXOutput;
 SRMux mySR1Mux(.Select(SR1MUX), .Aval(IR[11:9]), .Bval(IR[8:6]), .myOutput(SR1MUXOutput));
 
-
 //SR2MUX
-logic [15:0] SR2MUXOutput;
-generalMux mySR2Mux(.Select({0,SR2MUX}), .Aval(SR2SextOutput), .Bval(SR2), .Cval(0), .Dval(0), .myOutput(SR2MUXOutput));
-
-//SR2 MUX SEXT
-logic [15:0] SR2SextOutput;
-SEXT_5_Bit_To_16_Bit SR2SEXT(.in(IR[4:0]), .out(SR2SextOutput));
+SR2generalMux mySR2Mux(.Select(SR2MUX), .Aval({{11{IR[4]}},IR[4:0]}), .Bval(SR2), .Cval(0), .Dval(0), .myOutput(SR2MUXOutput));
 
 //ALU
-logic [15:0] ALUOutput;
 ALU myALU(.Select(ALUK), .Aval(SR1), .Bval(SR2MUXOutput), .Output(ALUOutput), .N(N_IN), .Z(Z_IN), .P(P_IN));
-
 
 ben_reg myBenReg(.clk(Clk), .reset(Reset), .load(LD_BEN), .Din({N_OUT, Z_OUT, P_OUT}), .IR(IR[11:9]), .Dout(BEN));
 
