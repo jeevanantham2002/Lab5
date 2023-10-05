@@ -240,13 +240,9 @@ module ISDU (   input logic         Clk,
 					Mem_OE = 1'b0;
 					Mem_WE = 1'b0;
 				end
-			S_33_1, S_33_2, S_33_3 : //You may have to think about this as well to adapt to RAM with wait-states
+			S_33_1, S_33_2, S_33_3, S_33_4 : //You may have to think about this as well to adapt to RAM with wait-states
 			    begin
 				    Mem_OE = 1'b1;
-				end
-		    S_33_4 :
-				begin
-					Mem_OE = 1'b1;
 					LD_MDR = 1'b1;
 				end
 			S_35 : 
