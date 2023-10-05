@@ -34,7 +34,7 @@ module RegisterFile(
     logic [15:0] registerOneDataOut, registerTwoDataOut, registerThreeDataOut, registerFourDataOut, registerFiveDataOut, registerSixDataOut, registerSevenDataOut, registerEightDataOut;
 
 
-    register registerOne(
+    registerOne registerOne(
         .clk(Clk),
         .reset(reset),
         .load(registerOneLoad),
@@ -42,7 +42,7 @@ module RegisterFile(
         .Dout(registerOneDataOut)
     );
 
-    register registerTwo(
+    registerTwo registerTwo(
         .clk(Clk),
         .reset(reset),
         .load(registerTwoLoad),
@@ -50,7 +50,7 @@ module RegisterFile(
         .Dout(registerTwoDataOut)
     );
 
-    register registerThree(
+    registerThree registerThree(
         .clk(Clk),
         .reset(reset),
         .load(registerThreeLoad),
@@ -58,7 +58,7 @@ module RegisterFile(
         .Dout(registerThreeDataOut)
     );
 
-    register registerFour(
+    registerFour registerFour(
         .clk(Clk),
         .reset(reset),
         .load(registerFourLoad),
@@ -66,7 +66,7 @@ module RegisterFile(
         .Dout(registerFourDataOut)
     );
 
-    register registerFive(
+    registerFive registerFive(
         .clk(Clk),
         .reset(reset),
         .load(registerFiveLoad),
@@ -74,7 +74,7 @@ module RegisterFile(
         .Dout(registerFiveDataOut)
     );
 
-    register registerSix(
+    registerSix registerSix(
         .clk(Clk),
         .reset(reset),
         .load(registerSixLoad),
@@ -82,7 +82,7 @@ module RegisterFile(
         .Dout(registerSixDataOut)
     );
 
-    register registerSeven(
+    registerSeven registerSeven(
         .clk(Clk),
         .reset(reset),
         .load(registerSevenLoad),
@@ -90,7 +90,7 @@ module RegisterFile(
         .Dout(registerSevenDataOut)
     );
 
-    register registerEight(
+    registerEight registerEight(
         .clk(Clk),
         .reset(reset),
         .load(registerEightLoad),

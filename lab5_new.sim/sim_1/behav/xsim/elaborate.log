@@ -4,39 +4,5 @@ Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3091] actual bit length 33 differs from formal bit length 2 for port 'Select' [C:/Users/jeeva/Documents/lab5_provided_fa23/provided/srcs/slc3.sv:93]
-WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [C:/Users/jeeva/Documents/lab5_provided_fa23/provided/srcs/slc3.sv:93]
-WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [C:/Users/jeeva/Documents/lab5_provided_fa23/provided/srcs/slc3.sv:136]
-WARNING: [VRFC 10-3091] actual bit length 33 differs from formal bit length 2 for port 'Select' [C:/Users/jeeva/Documents/lab5_provided_fa23/provided/srcs/slc3.sv:136]
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package xil_defaultlib.SLC3_2
-Compiling module xil_defaultlib.sync
-Compiling module xil_defaultlib.nibble_to_hex
-Compiling module xil_defaultlib.HexDriver_default
-Compiling module xil_defaultlib.MIOMux
-Compiling module xil_defaultlib.TSB_Mux
-Compiling module xil_defaultlib.register
-Compiling module xil_defaultlib.PC_mux
-Compiling module xil_defaultlib.Adder
-Compiling module xil_defaultlib.generalMux
-Compiling module xil_defaultlib.SEXT_11_Bit_To_16_Bit
-Compiling module xil_defaultlib.SEXT_9_Bit_To_16_Bit
-Compiling module xil_defaultlib.SEXT_6_Bit_To_16_Bit
-Compiling module xil_defaultlib.oneBitRegister
-Compiling module xil_defaultlib.RegisterFile
-Compiling module xil_defaultlib.SRMux
-Compiling module xil_defaultlib.SEXT_5_Bit_To_16_Bit
-Compiling module xil_defaultlib.ALU
-Compiling module xil_defaultlib.ben_reg
-Compiling module xil_defaultlib.Mem2IO
-Compiling module xil_defaultlib.ISDU
-Compiling module xil_defaultlib.slc3
-Compiling module xil_defaultlib.memory_parser
-Compiling module xil_defaultlib.test_memory
-Compiling module xil_defaultlib.slc3_testtop_default
-Compiling module xil_defaultlib.testbench_5_1_new
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot testbench_5_1_new_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

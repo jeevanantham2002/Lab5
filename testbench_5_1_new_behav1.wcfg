@@ -12,15 +12,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="50.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="953.373 ns"></ZoomEndTime>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,000.001 ns"></ZoomEndTime>
       <Cursor1Time time="369.458 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="533"></NameColumnWidth>
-      <ValueColumnWidth column_width="243"></ValueColumnWidth>
+      <ValueColumnWidth column_width="219"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="32" />
+   <WVObjectSize size="24" />
    <wvobject fp_name="/testbench_5_1_new/SW" type="array">
       <obj_property name="ElementShortName">SW[15:0]</obj_property>
       <obj_property name="ObjectShortName">SW[15:0]</obj_property>
@@ -60,18 +60,6 @@
    <wvobject fp_name="/testbench_5_1_new/SR2" type="array">
       <obj_property name="ElementShortName">SR2[15:0]</obj_property>
       <obj_property name="ObjectShortName">SR2[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench_5_1_new/ALUOutput" type="array">
-      <obj_property name="ElementShortName">ALUOutput[15:0]</obj_property>
-      <obj_property name="ObjectShortName">ALUOutput[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench_5_1_new/SR2MUXOutput" type="array">
-      <obj_property name="ElementShortName">SR2MUXOutput[15:0]</obj_property>
-      <obj_property name="ObjectShortName">SR2MUXOutput[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench_5_1_new/SR2MUXSelectOne" type="array">
-      <obj_property name="ElementShortName">SR2MUXSelectOne[15:0]</obj_property>
-      <obj_property name="ObjectShortName">SR2MUXSelectOne[15:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench_5_1_new/Clk" type="logic">
       <obj_property name="ElementShortName">Clk</obj_property>
@@ -121,33 +109,12 @@
       <obj_property name="ElementShortName">ALUK[1:0]</obj_property>
       <obj_property name="ObjectShortName">ALUK[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench_5_1_new/test_sim/slc/mySR2Mux/Select" type="array">
-      <obj_property name="ElementShortName">Select[1:0]</obj_property>
-      <obj_property name="ObjectShortName">Select[1:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   <wvobject fp_name="/testbench_5_1_new/test_sim/slc/GateALU" type="logic">
+      <obj_property name="ElementShortName">GateALU</obj_property>
+      <obj_property name="ObjectShortName">GateALU</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench_5_1_new/test_sim/slc/mySR2Mux/Select" type="array">
-      <obj_property name="ElementShortName">Select[1:0]</obj_property>
-      <obj_property name="ObjectShortName">Select[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench_5_1_new/test_sim/slc/mySR2Mux/Aval" type="array">
-      <obj_property name="ElementShortName">Aval[15:0]</obj_property>
-      <obj_property name="ObjectShortName">Aval[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench_5_1_new/test_sim/slc/mySR2Mux/Bval" type="array">
-      <obj_property name="ElementShortName">Bval[15:0]</obj_property>
-      <obj_property name="ObjectShortName">Bval[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench_5_1_new/test_sim/slc/mySR2Mux/Cval" type="array">
-      <obj_property name="ElementShortName">Cval[15:0]</obj_property>
-      <obj_property name="ObjectShortName">Cval[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench_5_1_new/test_sim/slc/mySR2Mux/Dval" type="array">
-      <obj_property name="ElementShortName">Dval[15:0]</obj_property>
-      <obj_property name="ObjectShortName">Dval[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench_5_1_new/test_sim/slc/mySR2Mux/myOutput" type="array">
-      <obj_property name="ElementShortName">myOutput[15:0]</obj_property>
-      <obj_property name="ObjectShortName">myOutput[15:0]</obj_property>
+   <wvobject fp_name="/testbench_5_1_new/test_sim/slc/bus_mux/Select" type="array">
+      <obj_property name="ElementShortName">Select[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Select[3:0]</obj_property>
    </wvobject>
 </wave_config>

@@ -34,6 +34,117 @@ module register(
       end
 endmodule
 
+module registerOne(
+      input logic clk, reset, load,
+      input logic [15:0] Din,
+      output logic [15:0] Dout);
+      
+      always_ff @ (posedge clk)
+      begin
+            if(reset)
+                Dout <= 16'h0001;
+            else if (load)
+                Dout <= Din;
+      end
+endmodule
+
+module registerTwo(
+      input logic clk, reset, load,
+      input logic [15:0] Din,
+      output logic [15:0] Dout);
+      
+      always_ff @ (posedge clk)
+      begin
+            if(reset)
+                Dout <= 16'h0002;
+            else if (load)
+                Dout <= Din;
+      end
+endmodule
+
+module registerThree(
+      input logic clk, reset, load,
+      input logic [15:0] Din,
+      output logic [15:0] Dout);
+      
+      always_ff @ (posedge clk)
+      begin
+            if(reset)
+                Dout <= 16'h0000;
+            else if (load)
+                Dout <= Din;
+      end
+endmodule
+
+module registerFour(
+      input logic clk, reset, load,
+      input logic [15:0] Din,
+      output logic [15:0] Dout);
+      
+      always_ff @ (posedge clk)
+      begin
+            if(reset)
+                Dout <= 16'h0000;
+            else if (load)
+                Dout <= Din;
+      end
+endmodule
+
+module registerFive(
+      input logic clk, reset, load,
+      input logic [15:0] Din,
+      output logic [15:0] Dout);
+      
+      always_ff @ (posedge clk)
+      begin
+            if(reset)
+                Dout <= 16'h0000;
+            else if (load)
+                Dout <= Din;
+      end
+endmodule
+
+module registerSix(
+      input logic clk, reset, load,
+      input logic [15:0] Din,
+      output logic [15:0] Dout);
+      
+      always_ff @ (posedge clk)
+      begin
+            if(reset)
+                Dout <= 16'h0000;
+            else if (load)
+                Dout <= Din;
+      end
+endmodule
+
+module registerSeven(
+      input logic clk, reset, load,
+      input logic [15:0] Din,
+      output logic [15:0] Dout);
+      
+      always_ff @ (posedge clk)
+      begin
+            if(reset)
+                Dout <= 16'h0000;
+            else if (load)
+                Dout <= Din;
+      end
+endmodule
+
+module registerEight(
+      input logic clk, reset, load,
+      input logic [15:0] Din,
+      output logic [15:0] Dout);
+      
+      always_ff @ (posedge clk)
+      begin
+            if(reset)
+                Dout <= 16'h0000;
+            else if (load)
+                Dout <= Din;
+      end
+endmodule
 
 module oneBitRegister(
       input logic clk, reset, load,

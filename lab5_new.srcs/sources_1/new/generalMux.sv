@@ -53,8 +53,8 @@ module SR2generalMux(
     always_comb
         begin
             case(Select)
-                2'b00: myOutput = Bval;
-                2'b01: myOutput = Aval;
+                1'b0: myOutput = Bval;
+                1'b1: myOutput = Aval;
             endcase
         end
 
@@ -71,8 +71,8 @@ module ADDR1generalMux(
     always_comb
         begin
             case(Select)
-                2'b00: myOutput = Aval;
-                2'b01: myOutput = Bval;
+                1'b0: myOutput = Aval;
+                1'b1: myOutput = Bval;
             endcase
         end
 

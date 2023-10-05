@@ -96,6 +96,7 @@ register MDR_register(.clk(Clk), .reset(Reset), .load(LD_MDR), .Din(MIO_mux_out)
 register MAR_register(.clk(Clk), .reset(Reset), .load(LD_MAR), .Din(bus), .Dout(MAR));
 register PC_register(.clk(Clk), .reset(Reset), .load(LD_PC), .Din(PC_mux_out), .Dout(PC));
 register IR_register(.clk(Clk), .reset(Reset), .load(LD_IR), .Din(bus), .Dout(IR));
+
 // Our I/O controller (note, this plugs into MDR/MAR)
 assign PCincrement = PC + 1;
 PC_mux myPCmux(.Select(PCMUX), .Aval(bus), .Bval(AdderOutput), .Cval(PCincrement), .Dval(16'h0000), .myOutput(PC_mux_out));
@@ -104,7 +105,7 @@ PC_mux myPCmux(.Select(PCMUX), .Aval(bus), .Bval(AdderOutput), .Cval(PCincrement
 Adder myAdder(.A(ADDR1MUXOUTPUT), .B(ADDR2MUXOUTPUT), .myOutput(AdderOutput));
 
 //Set Up ADDR1MUX
-ADDR1generalMux myADDR1MUX (.Select(ADDR1MUX), .Aval(SR1), .Bval(PCincrement), .Cval(16'h0000), .Dval(16'h0000), .myOutput(ADDR1MUXOUTPUT));
+ADDR1generalMux myADDR1MUX (.Select(ADDR1MUX), .Aval(SR1), .Bval(PCincrement), .myOutput(ADDR1MUXOUTPUT));
 
 //SET UP ADDR2MUX
 generalMux myADDR2MUX (.Select(ADDR2MUX), .Aval({{5{IR[10]}},IR[10:0]}), .Bval({{7{IR[8]}},IR[8:0]}), .Cval({{10{IR[5]}},IR[5:0]}), .Dval(16'h0000), .myOutput(ADDR2MUXOUTPUT));
@@ -124,7 +125,7 @@ SRMux DRMux(.Select(DRMUX), .Aval(3'b111), .Bval(IR[11:9]), .myOutput(DRMuxOutpu
 SRMux mySR1Mux(.Select(SR1MUX), .Aval(IR[11:9]), .Bval(IR[8:6]), .myOutput(SR1MUXOutput));
 
 //SR2MUX
-SR2generalMux mySR2Mux(.Select(SR2MUX), .Aval({{11{IR[4]}},IR[4:0]}), .Bval(SR2), .Cval(0), .Dval(0), .myOutput(SR2MUXOutput));
+SR2generalMux mySR2Mux(.Select(SR2MUX), .Aval({{11{IR[4]}},IR[4:0]}), .Bval(SR2), .myOutput(SR2MUXOutput));
 
 //ALU
 ALU myALU(.Select(ALUK), .Aval(SR1), .Bval(SR2MUXOutput), .Output(ALUOutput), .N(N_IN), .Z(Z_IN), .P(P_IN));
@@ -149,10 +150,3 @@ ISDU state_controller(
     .PCMUX(PCMUX), .ADDR2MUX(ADDR2MUX), .DRMUX(DRMUX), .SR1MUX(SR1MUX), .SR2MUX(SR2MUX), .ADDR1MUX(ADDR1MUX), .ALUK(ALUK));
 	
 endmodule
-
-//Things to Note:
-    //Muxes Read Left to Right as 0-1
-    //Make BEN in a register
-    //Test Before you push
-
-//Questions Do we need the 4th select for the ALU? Can we just leave it as 0?

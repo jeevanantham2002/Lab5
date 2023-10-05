@@ -25,7 +25,7 @@ module testbench_5_1_new();
 timeunit 10ns;
 timeprecision 1ns;
 
-     logic [15:0] SW, PC, MAR, MDR, IR, regZero, regOne, RegTwo, SR1, SR2, ALUOutput,SR2MUXOutput, SR2MUXSelectOne;
+     logic [15:0] SW, PC, MAR, MDR, IR, regZero, regOne, RegTwo, SR1, SR2;
 	 logic	Clk, Reset, Run, Continue, BEN;
 	 logic [15:0] LED;
 	 logic [7:0] hex_seg;
@@ -50,10 +50,7 @@ RegTwo = test_sim.slc.RegFile.registerThreeDataOut;
 State = test_sim.slc.state_controller.State;
 SR1 = test_sim.slc.SR1;
 SR2 = test_sim.slc.SR2;
-ALUOutput = test_sim.slc.ALUOutput;
-SR2MUXOutput = test_sim.slc.SR2MUXOutput;
 ALUK = test_sim.slc.ALUK;
-SR2MUXSelectOne = test_sim.slc.SR2MUXSelectOne;
 end
 
 always begin : CLOCK_GENERATION
