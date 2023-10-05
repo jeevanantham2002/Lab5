@@ -97,8 +97,8 @@ logic [15:0] ADDR2MUXOUTPUT;
 logic [15:0] selectOneADDR2MUX;
 logic [15:0] selectTwoADDR2MUX;
 logic [15:0] selectThreeADDR2MUX;
-logic [15:0] selectFourADDR2MUX = 16'h0000;
-generalMux myADDR2MUX (.Select(ADDR2MUX), .Aval(selectOneADDR2MUX), .Bval(selectTwoADDR2MUX), .Cval(selectThreeADDR2MUX), .Dval(selectFourADDR2MUX), .myOutput(ADDR2MUXOUTPUT));
+
+generalMux myADDR2MUX (.Select(ADDR2MUX), .Aval(selectOneADDR2MUX), .Bval(selectTwoADDR2MUX), .Cval(selectThreeADDR2MUX), .Dval(16'h0000), .myOutput(ADDR2MUXOUTPUT));
 
 SEXT_11_Bit_To_16_Bit firstInput(.in(IR[10:0]), .out(selectOneADDR2MUX));
 SEXT_9_Bit_To_16_Bit secondInput(.in(IR[8:0]), .out(selectTwoADDR2MUX));
@@ -111,27 +111,20 @@ oneBitRegister Z_Register(.clk(Clk), .reset(Reset), .load(LD_CC), .Din(Z_IN), .D
 oneBitRegister P_Register(.clk(Clk), .reset(Reset), .load(LD_CC), .Din(P_IN), .Dout(P_OUT));
 
 // Set Up Register File and Connections
-logic [2:0] SR2Select = IR[2:0]; //First 3 bits of the IR
-RegisterFile RegFile(.Clk(Clk), .reset(Reset), .Din(bus), .Load(LD_REG), .DRSelect(DRMuxOutput), .SR1Select(SR1MUXOutput), .SR2Select(SR2Select), .SR1(SR1), .SR2(SR2));
+RegisterFile RegFile(.Clk(Clk), .reset(Reset), .Din(bus), .Load(LD_REG), .DRSelect(DRMuxOutput), .SR1Select(SR1MUXOutput), .SR2Select(IR[2:0]), .SR1(SR1), .SR2(SR2));
 
 //DR MUX
 logic [2:0] DRMuxOutput;
-logic [2:0] DRMUXSelectZero = 3'b111;
-logic [2:0] DRMUXSelectOne = IR[11:9];
-SRMux DRMux(.Select(DRMUX), .Aval(DRMUXSelectZero), .Bval(DRMUXSelectOne), .myOutput(DRMuxOutput));
+SRMux DRMux(.Select(DRMUX), .Aval(3'b111), .Bval(IR[11:9]), .myOutput(DRMuxOutput));
 
 //SR1MUX
 logic [2:0] SR1MUXOutput;
-logic [2:0] SR1MUXSelectZero = IR[11:9];
-logic [2:0] SR1MUXSelectOne = IR[8:6];
-SRMux mySR1Mux(.Select(SR1MUX), .Aval(SR1MUXSelectZero), .Bval(SR1MUXSelectOne), .myOutput(SR1MUXOutput));
+SRMux mySR1Mux(.Select(SR1MUX), .Aval(IR[11:9]), .Bval(IR[8:6]), .myOutput(SR1MUXOutput));
 
 
 //SR2MUX
 logic [15:0] SR2MUXOutput;
-logic [15:0] SR2MUXSelectZero = SR2SextOutput;
-logic [15:0] SR2MUXSelectOne = SR2;
-generalMux mySR2Mux(.Select({0,SR2MUX}), .Aval(SR2MUXSelectZero), .Bval(SR2MUXSelectOne), .Cval(0), .Dval(0), .myOutput(SR2MUXOutput));
+generalMux mySR2Mux(.Select({0,SR2MUX}), .Aval(SR2SextOutput), .Bval(SR2), .Cval(0), .Dval(0), .myOutput(SR2MUXOutput));
 
 //SR2 MUX SEXT
 logic [15:0] SR2SextOutput;

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="testbench_5_1_new_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="SLC3_2" />
+            <top_module name="glbl" />
+            <top_module name="testbench_5_1_new" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="999,978 ps"></ZoomStartTime>
+      <ZoomEndTime time="999,996 ps"></ZoomEndTime>
+      <Cursor1Time time="999,985 ps"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="533"></NameColumnWidth>
+      <ValueColumnWidth column_width="259"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="32" />
+   <wvobject fp_name="/testbench_5_1_new/SW" type="array">
+      <obj_property name="ElementShortName">SW[15:0]</obj_property>
+      <obj_property name="ObjectShortName">SW[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/PC" type="array">
+      <obj_property name="ElementShortName">PC[15:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/MAR" type="array">
+      <obj_property name="ElementShortName">MAR[15:0]</obj_property>
+      <obj_property name="ObjectShortName">MAR[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/MDR" type="array">
+      <obj_property name="ElementShortName">MDR[15:0]</obj_property>
+      <obj_property name="ObjectShortName">MDR[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/IR" type="array">
+      <obj_property name="ElementShortName">IR[15:0]</obj_property>
+      <obj_property name="ObjectShortName">IR[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/regZero" type="array">
+      <obj_property name="ElementShortName">regZero[15:0]</obj_property>
+      <obj_property name="ObjectShortName">regZero[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/regOne" type="array">
+      <obj_property name="ElementShortName">regOne[15:0]</obj_property>
+      <obj_property name="ObjectShortName">regOne[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/RegTwo" type="array">
+      <obj_property name="ElementShortName">RegTwo[15:0]</obj_property>
+      <obj_property name="ObjectShortName">RegTwo[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/SR1" type="array">
+      <obj_property name="ElementShortName">SR1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">SR1[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/SR2" type="array">
+      <obj_property name="ElementShortName">SR2[15:0]</obj_property>
+      <obj_property name="ObjectShortName">SR2[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/ALUOutput" type="array">
+      <obj_property name="ElementShortName">ALUOutput[15:0]</obj_property>
+      <obj_property name="ObjectShortName">ALUOutput[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/SR2MUXOutput" type="array">
+      <obj_property name="ElementShortName">SR2MUXOutput[15:0]</obj_property>
+      <obj_property name="ObjectShortName">SR2MUXOutput[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/SR2MUXSelectOne" type="array">
+      <obj_property name="ElementShortName">SR2MUXSelectOne[15:0]</obj_property>
+      <obj_property name="ObjectShortName">SR2MUXSelectOne[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/Clk" type="logic">
+      <obj_property name="ElementShortName">Clk</obj_property>
+      <obj_property name="ObjectShortName">Clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/Reset" type="logic">
+      <obj_property name="ElementShortName">Reset</obj_property>
+      <obj_property name="ObjectShortName">Reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/Run" type="logic">
+      <obj_property name="ElementShortName">Run</obj_property>
+      <obj_property name="ObjectShortName">Run</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/Continue" type="logic">
+      <obj_property name="ElementShortName">Continue</obj_property>
+      <obj_property name="ObjectShortName">Continue</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/BEN" type="logic">
+      <obj_property name="ElementShortName">BEN</obj_property>
+      <obj_property name="ObjectShortName">BEN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/LED" type="array">
+      <obj_property name="ElementShortName">LED[15:0]</obj_property>
+      <obj_property name="ObjectShortName">LED[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/hex_seg" type="array">
+      <obj_property name="ElementShortName">hex_seg[7:0]</obj_property>
+      <obj_property name="ObjectShortName">hex_seg[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/hex_grid" type="array">
+      <obj_property name="ElementShortName">hex_grid[3:0]</obj_property>
+      <obj_property name="ObjectShortName">hex_grid[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/hex_segB" type="array">
+      <obj_property name="ElementShortName">hex_segB[7:0]</obj_property>
+      <obj_property name="ObjectShortName">hex_segB[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/hex_gridB" type="array">
+      <obj_property name="ElementShortName">hex_gridB[3:0]</obj_property>
+      <obj_property name="ObjectShortName">hex_gridB[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/State" type="array">
+      <obj_property name="ElementShortName">State[4:0]</obj_property>
+      <obj_property name="ObjectShortName">State[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/ALUK" type="array">
+      <obj_property name="ElementShortName">ALUK[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ALUK[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/test_sim/slc/myALU/Output" type="array">
+      <obj_property name="ElementShortName">Output[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Output[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/test_sim/slc/mySR2Mux/Select" type="array">
+      <obj_property name="ElementShortName">Select[1:0]</obj_property>
+      <obj_property name="ObjectShortName">Select[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/test_sim/slc/mySR2Mux/Aval" type="array">
+      <obj_property name="ElementShortName">Aval[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Aval[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/test_sim/slc/mySR2Mux/Bval" type="array">
+      <obj_property name="ElementShortName">Bval[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Bval[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/test_sim/slc/mySR2Mux/Cval" type="array">
+      <obj_property name="ElementShortName">Cval[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Cval[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/test_sim/slc/mySR2Mux/Dval" type="array">
+      <obj_property name="ElementShortName">Dval[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Dval[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/test_sim/slc/mySR2Mux/myOutput" type="array">
+      <obj_property name="ElementShortName">myOutput[15:0]</obj_property>
+      <obj_property name="ObjectShortName">myOutput[15:0]</obj_property>
+   </wvobject>
+</wave_config>
