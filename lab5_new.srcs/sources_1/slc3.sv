@@ -44,7 +44,8 @@ logic [1:0] PCMUX, ADDR2MUX, ALUK;
 logic [15:0] MDR_In, bus, PCincrement, PC_mux_out, MIO_mux_out;
 logic [15:0] MAR, MDR, IR, PC;
 logic [3:0] hex_4[3:0];
- 
+
+assign IR = 16'b0001010000000001;
 
 HexDriver HexA (
     .clk(Clk),
@@ -144,13 +145,7 @@ logic [15:0] ALUOutput;
 ALU myALU(.Select(ALUK), .Aval(SR1), .Bval(SR2MUXOutput), .Output(ALUOutput), .N(N_IN), .Z(Z_IN), .P(P_IN));
 
 
-always_comb
-begin
-   if(LD_BEN == 1'b1)
-   begin
-        BEN = IR[11] & N_OUT | IR[10] & Z_OUT | IR[9] & P_OUT;
-   end
-end
+ben_reg myBenReg(.clk(Clk), .reset(Reset), .load(LD_BEN), .Din({N_OUT, Z_OUT, P_OUT}), .IR(IR[11:9]), .Dout(BEN));
 
 
 Mem2IO memory_subsystem(
