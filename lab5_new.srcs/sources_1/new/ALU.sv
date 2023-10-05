@@ -33,7 +33,7 @@ module ALU(
             2'b00: Output = Aval + Bval;
             2'b01: Output = Aval & Bval;
             2'b10: Output = ~Aval;
-            2'b11: Output = 0;       
+            2'b11: Output = Aval;       
         endcase
 
         if (Output < 0)

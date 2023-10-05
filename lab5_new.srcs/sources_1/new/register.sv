@@ -28,7 +28,7 @@ module register(
       always_ff @ (posedge clk)
       begin
             if(reset)
-                Dout <= 16'h0003;
+                Dout <= 16'h0000;
             else if (load)
                 Dout <= Din;
       end

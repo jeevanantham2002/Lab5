@@ -71,7 +71,19 @@ module ISDU (   input logic         Clk,
 						S_12,
 						S_04,
 						S_06,
-						S_07}   State, Next_state;   // Internal state logic
+						S_07,
+						S_25_1,
+						S_25_2,
+						S_25_3,
+						S_25_4,
+						S_27,
+						S_23,
+						S_16_1,
+						S_16_2,
+						S_16_3,
+						S_16_4,
+						S_22,
+						S_21}   State, Next_state;
 		
 	always_ff @ (posedge Clk)
 	begin
@@ -167,8 +179,51 @@ module ISDU (   input logic         Clk,
 				endcase
     		S_01 : 
 				Next_state = S_18;
-			// You need to finish the rest of states.....
-			
+			S_05 :
+			    Next_state = S_18;
+			S_09 :
+			    Next_state = S_18;
+			S_00 :
+			    if (BEN)
+			     begin
+			         Next_state = S_22;
+			     end
+			    else
+			     begin
+			         Next_state = S_18;
+			     end
+			S_12 : 
+			     Next_state = S_18;
+			S_04 :     
+			     Next_state = S_21;
+			S_06 : 
+			     Next_state = S_25_1;
+			S_07 :
+			     Next_state = S_23;
+			S_25_1 :                 
+				Next_state = S_25_2;
+			S_25_2:
+			    Next_state = S_25_3;
+			S_25_3:
+			    Next_state = S_25_4;
+			S_25_4:
+			    Next_state = S_27;
+			S_27 : 
+			    Next_state = S_18;
+			S_23 :
+			    Next_state = S_16_1;
+			S_16_1 :                 
+				Next_state = S_16_2;
+			S_16_2:
+			    Next_state = S_16_3;
+			S_16_3:
+			    Next_state = S_16_4;
+			S_16_4:
+			    Next_state = S_18;
+			S_22 : 
+		        Next_state = S_18;
+		    S_21 :
+		        Next_state = S_18;
 			default :;
 
 		endcase
@@ -213,9 +268,102 @@ module ISDU (   input logic         Clk,
 					LD_CC = 1'b1;
 					DRMUX = 1'b1;
 				end
-
-			// You need to finish the rest of states..... 
-
+			S_05 :
+			    begin
+			        DRMUX = 1'b1;
+			        SR2MUX = IR_5;
+					SR1MUX = 1'b1;
+					ALUK = 2'b01;
+					GateALU = 1'b1;
+					LD_REG = 1'b1;
+					LD_CC = 1'b1;
+				end
+			S_09 :
+			     begin
+			        DRMUX = 1'b1;
+			        SR2MUX = IR_5;
+					SR1MUX = 1'b1;
+					ALUK = 2'b10;
+					GateALU = 1'b1;
+					LD_REG = 1'b1;
+					LD_CC = 1'b1;
+				 end
+			S_00 :;
+			S_12 :
+			     begin
+			        LD_PC = 1'b1;
+			        SR1MUX = 1'b1;
+			        ADDR2MUX = 2'b11;
+			        ADDR1MUX = 1'b0;
+			        PCMUX = 2'b01; 
+			     end
+			S_04 :
+			     begin
+			         GatePC = 1'b1;
+			         DRMUX = 1'b0;
+			         LD_REG = 1'b1;
+			     end
+			S_06 :
+			     begin
+			         SR1MUX = 1'b1;
+			         GateMARMUX = 1'b1;
+			         LD_MAR = 1'b1;
+			         ADDR2MUX = 2'b10;
+			         ADDR1MUX = 1'b0;
+			     end
+			S_07 :
+			     begin
+			         SR1MUX = 1'b0;
+			         GateMARMUX = 1'b1;
+			         LD_MAR = 1'b1;
+			         ADDR2MUX = 2'b10;
+			         ADDR1MUX = 1'b0;
+			     end
+			S_25_1, S_25_2, S_25_3 : //You may have to think about this as well to adapt to RAM with wait-states
+			    begin
+				    Mem_OE = 1'b1;
+				end
+		    S_25_4 :
+				begin
+					Mem_OE = 1'b1;
+					LD_MDR = 1'b1;
+				end
+		    S_27 :
+		        begin
+		            GateMDR = 1'b1;
+					LD_REG = 1'b1;
+					LD_CC = 1'b1;
+					DRMUX = 1'b1;
+			    end
+			S_23 :
+			    begin
+			        SR1MUX = 1'b1;
+			        ALUK = 2'b11;
+			        GateALU = 1'b1;
+			        LD_MDR = 1'b1;
+			    end
+			S_16_1, S_16_2, S_16_3 : //You may have to think about this as well to adapt to RAM with wait-states
+			    begin
+				    Mem_WE = 1'b1;
+				end
+		    S_16_4 :
+				begin
+					Mem_WE = 1'b1;
+				end
+		    S_22 :
+		        begin
+		            ADDR1MUX = 2'b01;
+		            ADDR2MUX = 2'b01;
+		            PCMUX = 2'b01;
+		            LD_PC = 1'b1;
+		        end
+		    S_21 :
+		        begin
+		            ADDR1MUX = 2'b01;
+		            ADDR2MUX = 2'b00;
+		            PCMUX = 2'b01;
+		            LD_PC = 1'b1;
+		        end
 			default : ;
 		endcase
 	end 
