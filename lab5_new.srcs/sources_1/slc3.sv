@@ -41,7 +41,7 @@ logic BEN, MIO_EN;
 logic N_OUT, Z_OUT, P_OUT; //What DOUT of the Registers Go To
 logic N_IN, Z_IN, P_IN;    //What DIN of the REGISTERS GO TO
 logic [1:0] PCMUX, ADDR2MUX, ALUK;
-logic [15:0] MDR_In, bus, PCincrement, PC_mux_out, MIO_mux_out;
+logic [15:0] MDR_In, bus, PCincrement, PC_mux_out, MIO_mux_out, SR1,SR2;;
 logic [15:0] MAR, MDR, IR, PC;
 logic [3:0] hex_4[3:0];
 
@@ -112,7 +112,6 @@ oneBitRegister P_Register(.clk(Clk), .reset(Reset), .load(LD_CC), .Din(P_IN), .D
 
 // Set Up Register File and Connections
 logic [2:0] SR2Select = IR[2:0]; //First 3 bits of the IR
-logic [15:0] SR1,SR2;
 RegisterFile RegFile(.Clk(Clk), .reset(Reset), .Din(bus), .Load(LD_REG), .DRSelect(DRMuxOutput), .SR1Select(SR1MUXOutput), .SR2Select(SR2Select), .SR1(SR1), .SR2(SR2));
 
 //DR MUX
@@ -132,7 +131,7 @@ SRMux mySR1Mux(.Select(SR1MUX), .Aval(SR1MUXSelectZero), .Bval(SR1MUXSelectOne),
 logic [15:0] SR2MUXOutput;
 logic [15:0] SR2MUXSelectZero = SR2SextOutput;
 logic [15:0] SR2MUXSelectOne = SR2;
-generalMux mySR2Mux(.Select({0,SR2MUX}), .Aval(SR2MUXSelectZero), .Bval(SR2), .Cval(0), .Dval(0), .myOutput(SR2MUXOutput));
+generalMux mySR2Mux(.Select({0,SR2MUX}), .Aval(SR2MUXSelectZero), .Bval(SR2MUXSelectOne), .Cval(0), .Dval(0), .myOutput(SR2MUXOutput));
 
 //SR2 MUX SEXT
 logic [15:0] SR2SextOutput;

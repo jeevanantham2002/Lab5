@@ -212,7 +212,6 @@ module ISDU (   input logic         Clk,
 					LD_REG = 1'b1;
 					LD_CC = 1'b1;
 					DRMUX = 1'b1;
-					// incomplete...
 				end
 
 			// You need to finish the rest of states..... 
