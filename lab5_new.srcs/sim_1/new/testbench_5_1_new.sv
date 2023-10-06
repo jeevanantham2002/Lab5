@@ -25,7 +25,7 @@ module testbench_5_1_new();
 timeunit 10ns;
 timeprecision 1ns;
 
-     logic [15:0] SW, PC, MAR, MDR, IR, regZero, regOne, RegTwo, SR1, SR2;
+     logic [15:0] SW, PC, MAR, MDR, IR, regZero, regOne, RegTwo, RegEight, SR1, SR2;
 	 logic	Clk, Reset, Run, Continue, BEN;
 	 logic [15:0] LED;
 	 logic [7:0] hex_seg;
@@ -47,6 +47,7 @@ BEN = test_sim.slc.BEN;
 regZero = test_sim.slc.RegFile.registerOneDataOut;
 regOne = test_sim.slc.RegFile.registerTwoDataOut;
 RegTwo = test_sim.slc.RegFile.registerThreeDataOut;
+RegEight = test_sim.slc.RegFile.registerEightDataOut;
 State = test_sim.slc.state_controller.State;
 SR1 = test_sim.slc.SR1;
 SR2 = test_sim.slc.SR2;
@@ -62,26 +63,22 @@ initial begin : CLOCK_INITIALIZATION
 end
 
 initial begin : TEST_VECTORS
-Reset = 0;
+Reset = 1;
 Continue = 0;
 Run = 0;
-SW = 16'b0000000000000000;
+SW = 16'b0000000000000011;
 
 #10 
-Reset = 1;
+Reset = 0;
 
 #10
 Reset = 0;
 Run = 1;
 
 #10
-Run = 0; 
-
-#20
+Run = 0;
+SW = 16'b0000000000000001;
 Continue = 1;
-
-#10
-Continue = 0;
 
 end
 

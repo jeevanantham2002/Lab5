@@ -13,14 +13,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,000.001 ns"></ZoomEndTime>
-      <Cursor1Time time="369.458 ns"></Cursor1Time>
+      <ZoomEndTime time="1,861.425 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="533"></NameColumnWidth>
-      <ValueColumnWidth column_width="219"></ValueColumnWidth>
+      <NameColumnWidth column_width="164"></NameColumnWidth>
+      <ValueColumnWidth column_width="71"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="24" />
+   <WVObjectSize size="26" />
    <wvobject fp_name="/testbench_5_1_new/SW" type="array">
       <obj_property name="ElementShortName">SW[15:0]</obj_property>
       <obj_property name="ObjectShortName">SW[15:0]</obj_property>
@@ -52,6 +52,10 @@
    <wvobject fp_name="/testbench_5_1_new/RegTwo" type="array">
       <obj_property name="ElementShortName">RegTwo[15:0]</obj_property>
       <obj_property name="ObjectShortName">RegTwo[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/RegEight" type="array">
+      <obj_property name="ElementShortName">RegEight[15:0]</obj_property>
+      <obj_property name="ObjectShortName">RegEight[15:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench_5_1_new/SR1" type="array">
       <obj_property name="ElementShortName">SR1[15:0]</obj_property>
@@ -116,5 +120,9 @@
    <wvobject fp_name="/testbench_5_1_new/test_sim/slc/bus_mux/Select" type="array">
       <obj_property name="ElementShortName">Select[3:0]</obj_property>
       <obj_property name="ObjectShortName">Select[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/test_sim/slc/hex_4" type="array">
+      <obj_property name="ElementShortName">hex_4[3:0][3:0]</obj_property>
+      <obj_property name="ObjectShortName">hex_4[3:0][3:0]</obj_property>
    </wvobject>
 </wave_config>

@@ -65,7 +65,7 @@ logic [15:0] ALUOutput;
 HexDriver HexA (
     .clk(Clk),
     .reset(Reset),
-    .in({IR[15:12], IR[11:8], IR[7:4], IR[3:0]}),
+    .in({hex_4[3][3:0],  hex_4[2][3:0], hex_4[1][3:0], hex_4[0][3:0]}),
     .hex_seg(hex_seg),
     .hex_grid(hex_grid)
 );
@@ -86,6 +86,8 @@ HexDriver HexB (
 //	input into MDR)
 assign ADDR = MAR; 
 assign MIO_EN = OE;
+
+assign LED = IR;
 
 MIOMux myMIOmux(.Select(MIO_EN), .Aval(bus), .Bval(MDR_In), .myOutput(MIO_mux_out));
 
@@ -142,7 +144,7 @@ Mem2IO memory_subsystem(
 
 // State machine, you need to fill in the code here as well
 ISDU state_controller(
-	.*, .Reset(Reset), .Run(Run), .Continue(Continue),
+	.Clk(Clk), .Reset(Reset), .Run(Run), .Continue(Continue),
 	.Opcode(IR[15:12]), .IR_5(IR[5]), .IR_11(IR[11]),
     .Mem_OE(OE), .Mem_WE(WE),
     .GatePC(GatePC), .GateMDR(GateMDR), .GateALU(GateALU), .GateMARMUX(GateMARMUX),

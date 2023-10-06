@@ -42,7 +42,7 @@ module registerOne(
       always_ff @ (posedge clk)
       begin
             if(reset)
-                Dout <= 16'h0001;
+                Dout <= 16'h0000;
             else if (load)
                 Dout <= Din;
       end
@@ -56,7 +56,7 @@ module registerTwo(
       always_ff @ (posedge clk)
       begin
             if(reset)
-                Dout <= 16'h0002;
+                Dout <= 16'h0000;
             else if (load)
                 Dout <= Din;
       end
