@@ -12,15 +12,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,861.425 ns"></ZoomEndTime>
+      <ZoomStartTime time="12.010 ns"></ZoomStartTime>
+      <ZoomEndTime time="96.011 ns"></ZoomEndTime>
       <Cursor1Time time="1,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="164"></NameColumnWidth>
-      <ValueColumnWidth column_width="71"></ValueColumnWidth>
+      <NameColumnWidth column_width="133"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="26" />
+   <WVObjectSize size="29" />
    <wvobject fp_name="/testbench_5_1_new/SW" type="array">
       <obj_property name="ElementShortName">SW[15:0]</obj_property>
       <obj_property name="ObjectShortName">SW[15:0]</obj_property>
@@ -124,5 +124,18 @@
    <wvobject fp_name="/testbench_5_1_new/test_sim/slc/hex_4" type="array">
       <obj_property name="ElementShortName">hex_4[3:0][3:0]</obj_property>
       <obj_property name="ObjectShortName">hex_4[3:0][3:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/test_sim/slc/MAR" type="array">
+      <obj_property name="ElementShortName">MAR[15:0]</obj_property>
+      <obj_property name="ObjectShortName">MAR[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/test_sim/slc/MDR" type="array">
+      <obj_property name="ElementShortName">MDR[15:0]</obj_property>
+      <obj_property name="ObjectShortName">MDR[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_5_1_new/test_sim/slc/HexA/in" type="array">
+      <obj_property name="ElementShortName">in[0:3][3:0]</obj_property>
+      <obj_property name="ObjectShortName">in[0:3][3:0]</obj_property>
    </wvobject>
 </wave_config>

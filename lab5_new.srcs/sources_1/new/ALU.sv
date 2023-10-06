@@ -23,8 +23,7 @@
 module ALU(
     input logic [1:0] Select,
     input logic [15:0] Aval, Bval,
-    output logic [15:0] Output,
-    output logic N,Z,P
+    output logic [15:0] Output
     );
 
     always_comb
@@ -35,27 +34,5 @@ module ALU(
             2'b10: Output = ~Aval;
             2'b11: Output = Aval;       
         endcase
-
-        if (Output < 0)
-        begin
-            N = 1'b1;
-            Z = 1'b0;
-            P = 1'b0;
-        end
-
-        if (Output == 0)
-        begin
-            N = 1'b0;
-            Z = 1'b1;
-            P = 1'b0;
-        end
-
-        if (Output > 0)
-        begin
-            N = 1'b0;
-            Z = 1'b0;
-            P = 1'b1;
-        end
-    end
-
+     end
 endmodule

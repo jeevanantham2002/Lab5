@@ -309,7 +309,7 @@ module ISDU (   input logic         Clk,
 			     end
 			S_07 :
 			     begin
-			         SR1MUX = 1'b0;
+			         SR1MUX = 1'b1;
 			         GateMARMUX = 1'b1;
 			         LD_MAR = 1'b1;
 			         ADDR2MUX = 2'b10;
@@ -333,29 +333,27 @@ module ISDU (   input logic         Clk,
 			    end
 			S_23 :
 			    begin
-			        SR1MUX = 1'b1;
+			        SR1MUX = 1'b0;
 			        ALUK = 2'b11;
 			        GateALU = 1'b1;
 			        LD_MDR = 1'b1;
+                    Mem_OE = 1'b0;
 			    end
-			S_16_1, S_16_2, S_16_3 : //You may have to think about this as well to adapt to RAM with wait-states
-			    begin
-				    Mem_WE = 1'b1;
-				end
-		    S_16_4 :
+			S_16_1, S_16_2, S_16_3, S_16_4 : //You may have to think about this as well to adapt to RAM with wait-states
 				begin
 					Mem_WE = 1'b1;
+					Mem_OE = 1'b1;
 				end
 		    S_22 :
 		        begin
-		            ADDR1MUX = 2'b01;
+		            ADDR1MUX = 1'b1;
 		            ADDR2MUX = 2'b01;
 		            PCMUX = 2'b01;
 		            LD_PC = 1'b1;
 		        end
 		    S_21 :
 		        begin
-		            ADDR1MUX = 2'b01;
+		            ADDR1MUX = 1'b1;
 		            ADDR2MUX = 2'b00;
 		            PCMUX = 2'b01;
 		            LD_PC = 1'b1;

@@ -22,8 +22,8 @@
 
 module testbench_5_1_new();
 
-timeunit 10ns;
-timeprecision 1ns;
+//timeunit 10ns;
+//timeprecision 1ns;
 
      logic [15:0] SW, PC, MAR, MDR, IR, regZero, regOne, RegTwo, RegEight, SR1, SR2;
 	 logic	Clk, Reset, Run, Continue, BEN;
@@ -65,20 +65,15 @@ end
 initial begin : TEST_VECTORS
 Reset = 1;
 Continue = 0;
-Run = 0;
 SW = 16'b0000000000000011;
 
 #10 
 Reset = 0;
-
-#10
-Reset = 0;
 Run = 1;
 
-#10
+#100
+SW = 16'b0000000000000111;
 Run = 0;
-SW = 16'b0000000000000001;
-Continue = 1;
 
 end
 

@@ -107,7 +107,7 @@ PC_mux myPCmux(.Select(PCMUX), .Aval(bus), .Bval(AdderOutput), .Cval(PCincrement
 Adder myAdder(.A(ADDR1MUXOUTPUT), .B(ADDR2MUXOUTPUT), .myOutput(AdderOutput));
 
 //Set Up ADDR1MUX
-ADDR1generalMux myADDR1MUX (.Select(ADDR1MUX), .Aval(SR1), .Bval(PCincrement), .myOutput(ADDR1MUXOUTPUT));
+ADDR1generalMux myADDR1MUX (.Select(ADDR1MUX), .Aval(SR1), .Bval(PC), .myOutput(ADDR1MUXOUTPUT));
 
 //SET UP ADDR2MUX
 generalMux myADDR2MUX (.Select(ADDR2MUX), .Aval({{5{IR[10]}},IR[10:0]}), .Bval({{7{IR[8]}},IR[8:0]}), .Cval({{10{IR[5]}},IR[5:0]}), .Dval(16'h0000), .myOutput(ADDR2MUXOUTPUT));
@@ -130,11 +130,37 @@ SRMux mySR1Mux(.Select(SR1MUX), .Aval(IR[11:9]), .Bval(IR[8:6]), .myOutput(SR1MU
 SR2generalMux mySR2Mux(.Select(SR2MUX), .Aval({{11{IR[4]}},IR[4:0]}), .Bval(SR2), .myOutput(SR2MUXOutput));
 
 //ALU
-ALU myALU(.Select(ALUK), .Aval(SR1), .Bval(SR2MUXOutput), .Output(ALUOutput), .N(N_IN), .Z(Z_IN), .P(P_IN));
+ALU myALU(.Select(ALUK), .Aval(SR1), .Bval(SR2MUXOutput), .Output(ALUOutput));
 
 ben_reg myBenReg(.clk(Clk), .reset(Reset), .load(LD_BEN), .Din({N_OUT, Z_OUT, P_OUT}), .IR(IR[11:9]), .Dout(BEN));
 
 
+always_comb
+begin
+    if (LD_CC)
+    begin
+        if (bus < 0)
+            begin
+                N_IN = 1'b1;
+                Z_IN = 1'b0;
+                P_IN = 1'b0;
+            end
+        if (bus == 0)
+            begin
+                N_IN = 1'b0;
+                Z_IN = 1'b1;
+                P_IN = 1'b0;
+            end
+
+        if (bus > 0)
+            begin
+                N_IN = 1'b0;
+                Z_IN = 1'b0;
+                P_IN = 1'b1;
+            end
+    end
+ end
+     
 Mem2IO memory_subsystem(
     .*, .Reset(Reset), .ADDR(ADDR), .Switches(SW),
     .HEX0(hex_4[0][3:0]), .HEX1(hex_4[1][3:0]), .HEX2(hex_4[2][3:0]), .HEX3(hex_4[3][3:0]), 
@@ -147,7 +173,7 @@ ISDU state_controller(
 	.Clk(Clk), .Reset(Reset), .Run(Run), .Continue(Continue),
 	.Opcode(IR[15:12]), .IR_5(IR[5]), .IR_11(IR[11]),
     .Mem_OE(OE), .Mem_WE(WE),
-    .GatePC(GatePC), .GateMDR(GateMDR), .GateALU(GateALU), .GateMARMUX(GateMARMUX),
+    .GatePC(GatePC), .GateMDR(GateMDR), .GateALU(GateALU), .GateMARMUX(GateMARMUX), .BEN(BEN),
     .LD_MAR(LD_MAR), .LD_MDR(LD_MDR), .LD_IR(LD_IR), .LD_BEN(LD_BEN), .LD_CC(LD_CC), .LD_REG(LD_REG), .LD_PC(LD_PC), .LD_LED(LD_LED),
     .PCMUX(PCMUX), .ADDR2MUX(ADDR2MUX), .DRMUX(DRMUX), .SR1MUX(SR1MUX), .SR2MUX(SR2MUX), .ADDR1MUX(ADDR1MUX), .ALUK(ALUK));
 	
