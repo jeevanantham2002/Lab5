@@ -98,33 +98,51 @@ module RegisterFile(
         .Dout(registerEightDataOut)
     );
 
-always_comb begin
+always_comb
+    begin
     unique case(SR1Select)
-    3'b000 : SR1 <= registerOneDataOut;
-    3'b001 : SR1 <= registerTwoDataOut;
-    3'b010 : SR1 <= registerThreeDataOut;
-    3'b011 : SR1 <= registerFourDataOut;
-    3'b100 : SR1 <= registerFiveDataOut;
-    3'b101 : SR1 <= registerSixDataOut;
-    3'b110 : SR1 <= registerSevenDataOut;
-    3'b111 : SR1 <= registerEightDataOut;
+    3'b000 :
+            SR1 <= registerOneDataOut;
+    3'b001 : 
+            SR1 <= registerTwoDataOut;
+    3'b010 :
+            SR1 <= registerThreeDataOut;
+    3'b011 :
+            SR1 <= registerFourDataOut;
+    3'b100 :
+            SR1 <= registerFiveDataOut;
+    3'b101 :
+            SR1 <= registerSixDataOut;
+    3'b110 :
+            SR1 <= registerSevenDataOut;
+    3'b111 :
+            SR1 <= registerEightDataOut;
+    endcase
+end
+
+always_comb
+    begin
+    unique case(SR2Select)
+    3'b000 :
+            SR2 <= registerOneDataOut;
+    3'b001 :
+            SR2 <= registerTwoDataOut;
+    3'b010 :
+            SR2 <= registerThreeDataOut;
+    3'b011 :
+            SR2 <= registerFourDataOut;
+    3'b100 :
+            SR2 <= registerFiveDataOut;
+    3'b101 :
+            SR2 <= registerSixDataOut;
+    3'b110 :
+            SR2 <= registerSevenDataOut;
+    3'b111 :
+            SR2 <= registerEightDataOut;
     endcase
 end
 
 always_comb begin
-    unique case(SR2Select)
-    3'b000 : SR2 <= registerOneDataOut;
-    3'b001 : SR2 <= registerTwoDataOut;
-    3'b010 : SR2 <= registerThreeDataOut;
-    3'b011 : SR2 <= registerFourDataOut;
-    3'b100 : SR2 <= registerFiveDataOut;
-    3'b101 : SR2 <= registerSixDataOut;
-    3'b110 : SR2 <= registerSevenDataOut;
-    3'b111 : SR2 <= registerEightDataOut;
-    endcase
-end
-
-always_comb begin // decode DR and LD_REG signals
     registerOneLoad <= 1'b0;
     registerTwoLoad <= 1'b0;
     registerThreeLoad <= 1'b0;
@@ -134,16 +152,25 @@ always_comb begin // decode DR and LD_REG signals
     registerSevenLoad <= 1'b0;
     registerEightLoad <= 1'b0;
 
-    if (Load) begin
+    if (Load)
+    begin
         unique case(DRSelect)
-        3'b000 : registerOneLoad <= 1'b1;
-        3'b001 : registerTwoLoad <= 1'b1;
-        3'b010 : registerThreeLoad <= 1'b1;
-        3'b011 : registerFourLoad <= 1'b1;
-        3'b100 : registerFiveLoad <= 1'b1;
-        3'b101 : registerSixLoad <= 1'b1;
-        3'b110 : registerSevenLoad <= 1'b1;
-        3'b111 : registerEightLoad <= 1'b1;
+        3'b000 :
+                registerOneLoad <= 1'b1;
+        3'b001 :
+                registerTwoLoad <= 1'b1;
+        3'b010 :
+                registerThreeLoad <= 1'b1;
+        3'b011 :
+                registerFourLoad <= 1'b1;
+        3'b100 :
+                registerFiveLoad <= 1'b1;
+        3'b101 :
+                registerSixLoad <= 1'b1;
+        3'b110 :
+                registerSevenLoad <= 1'b1;
+        3'b111 :
+                registerEightLoad <= 1'b1;
         endcase
     end
 end
