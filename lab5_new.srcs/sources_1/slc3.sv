@@ -137,6 +137,9 @@ ben_reg myBenReg(.clk(Clk), .reset(Reset), .load(LD_BEN), .Din({N_OUT, Z_OUT, P_
 
 always_comb
 begin
+N_IN = 1'b0;
+Z_IN = 1'b0;
+P_IN = 1'b0;
     if (LD_CC)
     begin
         if (bus < 0)

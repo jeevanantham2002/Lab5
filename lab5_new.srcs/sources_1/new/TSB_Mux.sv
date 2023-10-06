@@ -28,6 +28,7 @@ module TSB_Mux(
     
     always_comb
     begin
+    myOutput = 'x; 
         case(Select)
             4'b1000: myOutput = Aval;
             4'b0100: myOutput = Bval;

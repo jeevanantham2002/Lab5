@@ -65,15 +65,33 @@ end
 initial begin : TEST_VECTORS
 Reset = 1;
 Continue = 0;
-SW = 16'b0000000000000011;
 
-#10 
+#100 
 Reset = 0;
+SW = 16'h0031;
 Run = 1;
 
 #100
-SW = 16'b0000000000000111;
+Continue = 1;
+
+#100
+Continue = 0;
+SW = 16'h0003;
 Run = 0;
+
+#100
+Continue = 1;
+
+#100
+Continue = 0;
+SW = 16'h0002;
+Run = 0;
+
+#100
+Continue = 1;
+
+#100
+Continue = 0;
 
 end
 

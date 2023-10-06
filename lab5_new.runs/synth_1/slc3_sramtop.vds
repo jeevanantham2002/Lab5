@@ -2,8 +2,8 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Fri Oct  6 00:02:22 2023
-# Process ID: 12092
+# Start of session at: Fri Oct  6 01:23:24 2023
+# Process ID: 11132
 # Current directory: C:/Users/navinr2/Downloads/Lab5/lab5_new.runs/synth_1
 # Command line: vivado.exe -log slc3_sramtop.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source slc3_sramtop.tcl
 # Log file: C:/Users/navinr2/Downloads/Lab5/lab5_new.runs/synth_1/slc3_sramtop.vds
@@ -28,7 +28,7 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 2112
+INFO: [Synth 8-7075] Helper process launched with PID 17400
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 WARNING: [Synth 8-11067] parameter 'op_ADD' declared inside package 'SLC3_2' shall be treated as localparam [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/SLC3_2.sv:27]
 WARNING: [Synth 8-11067] parameter 'op_AND' declared inside package 'SLC3_2' shall be treated as localparam [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/SLC3_2.sv:28]
@@ -62,7 +62,7 @@ WARNING: [Synth 8-11017] non-void function 'opRET' is called without empty paren
 WARNING: [Synth 8-11017] non-void function 'opRET' is called without empty parentheses [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/Instantiateram.sv:240]
 WARNING: [Synth 8-11017] non-void function 'opRET' is called without empty parentheses [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/Instantiateram.sv:258]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1818.145 ; gain = 408.324
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1818.062 ; gain = 408.750
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'slc3_sramtop' [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/slc3_sramtop.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'sync' [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/synchronizers.sv:5]
@@ -82,7 +82,7 @@ INFO: [Synth 8-6157] synthesizing module 'MIOMux' [C:/Users/navinr2/Downloads/La
 INFO: [Synth 8-226] default block is never used [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/new/MIOMux.sv:31]
 INFO: [Synth 8-6155] done synthesizing module 'MIOMux' (0#1) [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/new/MIOMux.sv:23]
 INFO: [Synth 8-6157] synthesizing module 'TSB_Mux' [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/new/TSB_Mux.sv:23]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/new/TSB_Mux.sv:31]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/new/TSB_Mux.sv:32]
 INFO: [Synth 8-6155] done synthesizing module 'TSB_Mux' (0#1) [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/new/TSB_Mux.sv:23]
 INFO: [Synth 8-6157] synthesizing module 'register' [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/new/register.sv:23]
 INFO: [Synth 8-6155] done synthesizing module 'register' (0#1) [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/new/register.sv:23]
@@ -128,35 +128,31 @@ INFO: [Synth 8-6155] done synthesizing module 'ben_reg' (0#1) [C:/Users/navinr2/
 INFO: [Synth 8-6157] synthesizing module 'Mem2IO' [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/Mem2IO.sv:17]
 INFO: [Synth 8-6155] done synthesizing module 'Mem2IO' (0#1) [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/Mem2IO.sv:17]
 INFO: [Synth 8-6157] synthesizing module 'ISDU' [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/ISDU.sv:21]
-INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/ISDU.sv:129]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/ISDU.sv:126]
 INFO: [Synth 8-6155] done synthesizing module 'ISDU' (0#1) [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/ISDU.sv:21]
 INFO: [Synth 8-6155] done synthesizing module 'slc3' (0#1) [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/slc3.sv:22]
 INFO: [Synth 8-6157] synthesizing module 'Instantiateram' [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/Instantiateram.sv:17]
 INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/Instantiateram.sv:61]
 INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/Instantiateram.sv:80]
 INFO: [Synth 8-6155] done synthesizing module 'Instantiateram' (0#1) [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/Instantiateram.sv:17]
-INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_1' [C:/Users/navinr2/Downloads/Lab5/lab5_new.runs/synth_1/.Xil/Vivado-12092-ECEB-3022-09/realtime/blk_mem_gen_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_1' (0#1) [C:/Users/navinr2/Downloads/Lab5/lab5_new.runs/synth_1/.Xil/Vivado-12092-ECEB-3022-09/realtime/blk_mem_gen_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_1' [C:/Users/navinr2/Downloads/Lab5/lab5_new.runs/synth_1/.Xil/Vivado-11132-ECEB-3022-09/realtime/blk_mem_gen_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_1' (0#1) [C:/Users/navinr2/Downloads/Lab5/lab5_new.runs/synth_1/.Xil/Vivado-11132-ECEB-3022-09/realtime/blk_mem_gen_1_stub.v:5]
 INFO: [Synth 8-6155] done synthesizing module 'slc3_sramtop' (0#1) [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/slc3_sramtop.sv:3]
-WARNING: [Synth 8-87] always_comb on 'myOutput_reg' did not result in combinational logic [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/new/TSB_Mux.sv:32]
-WARNING: [Synth 8-87] always_comb on 'N_IN_reg' did not result in combinational logic [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/slc3.sv:116]
-WARNING: [Synth 8-87] always_comb on 'Z_IN_reg' did not result in combinational logic [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/slc3.sv:117]
-WARNING: [Synth 8-87] always_comb on 'P_IN_reg' did not result in combinational logic [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/slc3.sv:118]
 WARNING: [Synth 8-3936] Found unconnected internal register 'ADDR_reg' and it is trimmed from '16' to '10' bits. [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/slc3_sramtop.sv:49]
 WARNING: [Synth 8-7129] Port IR_11 in module ISDU is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1917.062 ; gain = 507.242
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1917.043 ; gain = 507.730
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1917.062 ; gain = 507.242
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1917.043 ; gain = 507.730
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1917.062 ; gain = 507.242
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1917.043 ; gain = 507.730
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1917.062 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1917.043 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -169,35 +165,34 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/slc3_sramtop_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1997.820 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1995.355 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1997.820 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1995.355 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'ram1' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1999.672 ; gain = 589.852
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1996.938 ; gain = 587.625
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1999.672 ; gain = 589.852
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1996.938 ; gain = 587.625
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property KEEP_HIERARCHY = SOFT for ram1. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1999.672 ; gain = 589.852
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1996.938 ; gain = 587.625
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'State_reg' in module 'ISDU'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'Instantiateram'
-WARNING: [Synth 8-327] inferring latch for variable 'myOutput_reg' [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/new/TSB_Mux.sv:32]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -206,36 +201,30 @@ WARNING: [Synth 8-327] inferring latch for variable 'myOutput_reg' [C:/Users/nav
                   S_33_1 |                            00010 |                            00100
                   S_33_2 |                            00011 |                            00101
                   S_33_3 |                            00100 |                            00110
-                  S_33_4 |                            00101 |                            00111
-                    S_35 |                            00110 |                            01000
-                    S_32 |                            00111 |                            01001
-                    S_01 |                            01000 |                            01010
-                    S_05 |                            01001 |                            01011
-                    S_09 |                            01010 |                            01100
-                    S_00 |                            01011 |                            01101
-                    S_22 |                            01100 |                            11100
-                    S_12 |                            01101 |                            01110
-                    S_04 |                            01110 |                            01111
-                    S_21 |                            01111 |                            11101
-                    S_06 |                            10000 |                            10000
-                  S_25_1 |                            10001 |                            10010
-                  S_25_2 |                            10010 |                            10011
-                  S_25_3 |                            10011 |                            10100
-                  S_25_4 |                            10100 |                            10101
-                    S_27 |                            10101 |                            10110
-                    S_07 |                            10110 |                            10001
-                    S_23 |                            10111 |                            10111
-                  S_16_1 |                            11000 |                            11000
-                  S_16_2 |                            11001 |                            11001
-                  S_16_3 |                            11010 |                            11010
-                  S_16_4 |                            11011 |                            11011
-                PauseIR1 |                            11100 |                            00001
-                PauseIR2 |                            11101 |                            00010
+                    S_35 |                            00101 |                            00111
+                    S_32 |                            00110 |                            01000
+                    S_01 |                            00111 |                            01001
+                    S_05 |                            01000 |                            01010
+                    S_09 |                            01001 |                            01011
+                    S_00 |                            01010 |                            01100
+                    S_22 |                            01011 |                            11001
+                    S_12 |                            01100 |                            01101
+                    S_04 |                            01101 |                            01110
+                    S_21 |                            01110 |                            11010
+                    S_06 |                            01111 |                            01111
+                  S_25_1 |                            10000 |                            10001
+                  S_25_2 |                            10001 |                            10010
+                  S_25_3 |                            10010 |                            10011
+                    S_27 |                            10011 |                            10100
+                    S_07 |                            10100 |                            10000
+                    S_23 |                            10101 |                            10101
+                  S_16_1 |                            10110 |                            10110
+                  S_16_2 |                            10111 |                            10111
+                  S_16_3 |                            11000 |                            11000
+                PauseIR1 |                            11001 |                            00001
+                PauseIR2 |                            11010 |                            00010
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'State_reg' using encoding 'sequential' in module 'ISDU'
-WARNING: [Synth 8-327] inferring latch for variable 'P_IN_reg' [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/slc3.sv:118]
-WARNING: [Synth 8-327] inferring latch for variable 'Z_IN_reg' [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/slc3.sv:117]
-WARNING: [Synth 8-327] inferring latch for variable 'N_IN_reg' [C:/Users/navinr2/Downloads/Lab5/lab5_new.srcs/sources_1/slc3.sv:116]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -245,7 +234,7 @@ WARNING: [Synth 8-327] inferring latch for variable 'N_IN_reg' [C:/Users/navinr2
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'Instantiateram'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1999.672 ; gain = 589.852
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1996.938 ; gain = 587.625
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -263,7 +252,7 @@ Detailed RTL Component Info :
 	   2 Input   10 Bit        Muxes := 1     
 	   4 Input    8 Bit        Muxes := 2     
 	   2 Input    8 Bit        Muxes := 2     
-	  30 Input    5 Bit        Muxes := 1     
+	  27 Input    5 Bit        Muxes := 1     
 	   2 Input    5 Bit        Muxes := 3     
 	  10 Input    5 Bit        Muxes := 1     
 	   5 Input    4 Bit        Muxes := 2     
@@ -271,11 +260,10 @@ Detailed RTL Component Info :
 	  22 Input    2 Bit        Muxes := 3     
 	   3 Input    2 Bit        Muxes := 1     
 	   2 Input    2 Bit        Muxes := 1     
-	   5 Input    1 Bit        Muxes := 1     
 	   8 Input    1 Bit        Muxes := 8     
 	  22 Input    1 Bit        Muxes := 17    
-	  30 Input    1 Bit        Muxes := 1     
-	   3 Input    1 Bit        Muxes := 3     
+	  27 Input    1 Bit        Muxes := 1     
+	   3 Input    1 Bit        Muxes := 2     
 	   2 Input    1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -295,9 +283,8 @@ Start Cross Boundary and Area Optimization
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 WARNING: [Synth 8-3917] design slc3_sramtop has port hex_seg[7] driven by constant 1
 WARNING: [Synth 8-3917] design slc3_sramtop has port hex_segB[7] driven by constant 1
-WARNING: [Synth 8-3332] Sequential element (slc/N_IN_reg) is unused and will be removed from module slc3_sramtop.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1999.672 ; gain = 589.852
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1996.938 ; gain = 587.625
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -317,19 +304,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 1999.672 ; gain = 589.852
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1996.938 ; gain = 587.625
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1999.672 ; gain = 589.852
+Finished Timing Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 2013.188 ; gain = 603.875
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 2003.953 ; gain = 594.133
+Finished Technology Mapping : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 2014.238 ; gain = 604.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -347,37 +334,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 2003.953 ; gain = 594.133
+Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 2014.238 ; gain = 604.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 2003.953 ; gain = 594.133
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 2014.238 ; gain = 604.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 2003.953 ; gain = 594.133
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 2014.238 ; gain = 604.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 2003.953 ; gain = 594.133
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 2014.238 ; gain = 604.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 2003.953 ; gain = 594.133
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 2014.238 ; gain = 604.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 2003.953 ; gain = 594.133
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 2014.238 ; gain = 604.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -397,41 +384,39 @@ Report Cell Usage:
 |1     |blk_mem_gen |     1|
 |2     |BUFG        |     1|
 |3     |CARRY4      |    23|
-|4     |LUT1        |     4|
-|5     |LUT2        |    16|
-|6     |LUT3        |    45|
-|7     |LUT4        |    54|
-|8     |LUT5        |   102|
-|9     |LUT6        |   282|
+|4     |LUT1        |     3|
+|5     |LUT2        |    21|
+|6     |LUT3        |    20|
+|7     |LUT4        |    66|
+|8     |LUT5        |   187|
+|9     |LUT6        |   213|
 |10    |MUXF7       |     1|
 |11    |FDCE        |    26|
 |12    |FDRE        |   235|
-|13    |LD          |    18|
-|14    |IBUF        |    20|
-|15    |OBUF        |    40|
+|13    |IBUF        |    20|
+|14    |OBUF        |    40|
 +------+------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 2003.953 ; gain = 594.133
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 2014.238 ; gain = 604.926
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 8 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:34 . Memory (MB): peak = 2003.953 ; gain = 511.523
-Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 2003.953 ; gain = 594.133
+Synthesis finished with 0 errors, 0 critical warnings and 3 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:26 ; elapsed = 00:00:34 . Memory (MB): peak = 2014.238 ; gain = 525.031
+Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 2014.238 ; gain = 604.926
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 2015.824 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 42 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 2026.137 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 24 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2019.461 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2029.777 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 18 instances were transformed.
-  LD => LDCE: 18 instances
+No Unisim elements were transformed.
 
-Synth Design complete, checksum: 25ecce87
+Synth Design complete, checksum: 62b0bcbe
 INFO: [Common 17-83] Releasing license: Synthesis
-102 Infos, 47 Warnings, 0 Critical Warnings and 0 Errors encountered.
+102 Infos, 38 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 2019.461 ; gain = 984.578
+synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:41 . Memory (MB): peak = 2029.777 ; gain = 995.844
 INFO: [Common 17-1381] The checkpoint 'C:/Users/navinr2/Downloads/Lab5/lab5_new.runs/synth_1/slc3_sramtop.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file slc3_sramtop_utilization_synth.rpt -pb slc3_sramtop_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Oct  6 00:03:13 2023...
+INFO: [Common 17-206] Exiting Vivado at Fri Oct  6 01:24:16 2023...

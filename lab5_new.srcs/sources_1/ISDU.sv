@@ -61,7 +61,6 @@ module ISDU (   input logic         Clk,
 						S_33_1,
 						S_33_2,
 						S_33_3,
-						S_33_4,
 						S_35, 
 						S_32, 
 						S_01,
@@ -75,13 +74,11 @@ module ISDU (   input logic         Clk,
 						S_25_1,
 						S_25_2,
 						S_25_3,
-						S_25_4,
 						S_27,
 						S_23,
 						S_16_1,
 						S_16_2,
 						S_16_3,
-						S_16_4,
 						S_22,
 						S_21}   State, Next_state;
 		
@@ -137,8 +134,6 @@ module ISDU (   input logic         Clk,
 			S_33_2:
 			    Next_state = S_33_3;
 			S_33_3:
-			    Next_state = S_33_4;
-			S_33_4:
 			    Next_state = S_35;   //it has an additional output register. 
 			S_35 : 
 				Next_state = S_32;
@@ -205,8 +200,6 @@ module ISDU (   input logic         Clk,
 			S_25_2:
 			    Next_state = S_25_3;
 			S_25_3:
-			    Next_state = S_25_4;
-			S_25_4:
 			    Next_state = S_27;
 			S_27 : 
 			    Next_state = S_18;
@@ -217,8 +210,6 @@ module ISDU (   input logic         Clk,
 			S_16_2:
 			    Next_state = S_16_3;
 			S_16_3:
-			    Next_state = S_16_4;
-			S_16_4:
 			    Next_state = S_18;
 			S_22 : 
 		        Next_state = S_18;
@@ -240,7 +231,7 @@ module ISDU (   input logic         Clk,
 					Mem_OE = 1'b0;
 					Mem_WE = 1'b0;
 				end
-			S_33_1, S_33_2, S_33_3, S_33_4 : //You may have to think about this as well to adapt to RAM with wait-states
+			S_33_1, S_33_2, S_33_3 : //You may have to think about this as well to adapt to RAM with wait-states
 			    begin
 				    Mem_OE = 1'b1;
 					LD_MDR = 1'b1;
@@ -315,11 +306,11 @@ module ISDU (   input logic         Clk,
 			         ADDR2MUX = 2'b10;
 			         ADDR1MUX = 1'b0;
 			     end
-			S_25_1, S_25_2, S_25_3 : //You may have to think about this as well to adapt to RAM with wait-states
+			S_25_1, S_25_2 : //You may have to think about this as well to adapt to RAM with wait-states
 			    begin
 				    Mem_OE = 1'b1;
 				end
-		    S_25_4 :
+		    S_25_3 :
 				begin
 					Mem_OE = 1'b1;
 					LD_MDR = 1'b1;
@@ -339,7 +330,7 @@ module ISDU (   input logic         Clk,
 			        LD_MDR = 1'b1;
                     Mem_OE = 1'b0;
 			    end
-			S_16_1, S_16_2, S_16_3, S_16_4 : //You may have to think about this as well to adapt to RAM with wait-states
+			S_16_1, S_16_2, S_16_3 : //You may have to think about this as well to adapt to RAM with wait-states
 				begin
 					Mem_WE = 1'b1;
 					Mem_OE = 1'b1;
